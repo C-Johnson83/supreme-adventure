@@ -1,4 +1,7 @@
 const typeDefs = `
+
+scalar Date
+
 type User {
 	_id: ID!
 	username: String!
@@ -15,7 +18,7 @@ type List {
 	accessCode: String!,
 	listType: String!,
 	listName: String!,
-	eventDate: date,
+	eventDate: Date,
 	items: [Item]
 }
 
@@ -23,8 +26,8 @@ type Item {
 	_id: ID!,
 	name: String!,
 	link: String,
-	quantity: Integer!,
-	quantityBought: Integer!,
+	quantity: Int!,
+	quantityBought: Int!,
 	note: String
 } 
 

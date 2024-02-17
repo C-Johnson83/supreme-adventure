@@ -4,7 +4,7 @@ const { User} = require("../models")
 
 const resolvers = {
 	Query: {
-		users: async ()=>{
+		user: async ()=>{
 			return User.find().select("-password")
 		}
 	}
