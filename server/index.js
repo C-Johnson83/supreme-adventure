@@ -38,7 +38,7 @@ app.get("*", (req, res)=>{
 
 db.once('open', ()=>{
 	app.listen(PORT, ()=>{
-		console.log(`App is lisenting on ${PORT}, URL "http://localhost:3001"`);
+		console.log(`App is listening on "http://localhost:${PORT}"`);
 		console.log(`GQL http://localhost:3001/graphql`)
 	})
 })
