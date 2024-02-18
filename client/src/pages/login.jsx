@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import './login.css';
-
 const Login = () => {
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [formData, setFormData] = useState({
         username: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        eventType: 'Wedding' // Default event type
     });
 
     const handleChange = (e) => {
@@ -34,13 +33,9 @@ const Login = () => {
     };
 
     return (
-        <div className="hero">
+        <div className="hero loginHero">
             <div className="overlay"></div>
             <div className="content">
-                <div className="buttons-container">
-
-
-                </div>
                 {showLoginForm ? (
                     <>
                         <h2>Login</h2>
@@ -53,13 +48,21 @@ const Login = () => {
                                 <label htmlFor="password">Password:</label>
                                 <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
                             </div>
-                            <button className="btn" type="submit">Login</button> or   <button className={`btn ${showLoginForm ? '' : 'active'}`} onClick={() => handleToggleForm(false)}>Sign Up</button>
+                            <button className="btn loginBtn" type="submit">Login</button> or   <button className={`btn ${showLoginForm ? '' : 'active'} loginBtn`} onClick={() => handleToggleForm(false)}>Sign Up</button>
                         </form>
                     </>
                 ) : (
                     <>
                         <h2>Sign Up</h2>
                         <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="eventType">Event Type:</label>
+                                <select id="eventType" name="eventType" value={formData.eventType} onChange={handleChange}>
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Baby Shower">Baby Shower</option>
+                                    <option value="Birthday">Birthday</option>
+                                </select>
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="username">Username:</label>
                                 <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
@@ -76,7 +79,7 @@ const Login = () => {
                                 <label htmlFor="password">Password:</label>
                                 <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
                             </div>
-                            <button className="btn" type="submit">Sign Up</button>
+                            <button className="btn loginBtn" type="submit">Sign Up</button>
                             <div className='btn-container'>
                             </div>
                             <p>

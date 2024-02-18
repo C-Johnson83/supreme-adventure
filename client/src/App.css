@@ -11,7 +11,12 @@ body {
     background-position: center;
     overflow: hidden;
 }
-
+.homeHero {
+    background-image: url('https://wallpapercave.com/wp/wp2890699.jpg');
+}
+.loginHero{
+    background-image: url('https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg');
+}
 .overlay {
     position: absolute;
     top: 0;
@@ -29,6 +34,8 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+    width: 25%;
+    background-color: #0f1010;
 }
 
 .content h1 {
@@ -46,4 +53,52 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    color: #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+    margin-bottom: 5%;
+}
+.homeBtn{
+    background-image:linear-gradient(-45deg, #6a1779,#1b368d);
+}
+.loginBtn{
+    background-image: linear-gradient(-45deg, #066b74, #1b368d);
+}
+.btn-back {
+    background-color: #dc1414;
+    color: #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+}
+
+.btn:hover {
+    background-color: #1b368d;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.back-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid black;
+
+}
+
+
+
+form p {
+    margin: 10% 60% 0 0;
+    color: #ffffff;
 }
