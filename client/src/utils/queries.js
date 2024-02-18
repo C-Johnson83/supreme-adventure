@@ -8,6 +8,7 @@ query users {
 		username
 		firstName
 		lastName
+		items
 	}
 }
 `
