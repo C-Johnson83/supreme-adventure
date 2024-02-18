@@ -1,4 +1,4 @@
-const { User, Gift, Item } = require("../models");
+const { User, Item } = require("../models");
 
 const resolvers = {
   Query: {
@@ -16,7 +16,7 @@ const resolvers = {
   Mutation: {
     addItemToList: async (_, { listId, name, link, quantity, note }) => {
       try {
-        const list = await Gift.findById(listId);
+        const list = await Item.findById(listId);
         if (!list) {
           throw new Error('List not found');
         }
@@ -31,7 +31,7 @@ const resolvers = {
 
     deleteItemFromList: async (_, { listId, itemId }) => {
       try {
-        const list = await Gift.findById(listId);
+        const list = await Item.findById(listId);
         if (!list) {
           throw new Error('List not found');
         }
