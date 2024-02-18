@@ -10,6 +10,7 @@ type User {
 	lastName: String!
 	email: String!
 	lists: [List]
+	gifts: [Gift]
 }
 
 type List {
@@ -30,6 +31,13 @@ type Item {
 	quantityBought: Int!,
 	note: String
 } 
+
+type Mutation {
+    
+    addItemToList(listId: ID!, name: String!, link: String, quantity: Int!, note: String): Item
+    deleteItemFromList(listId: ID!, itemId: ID!): Item
+    updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
+}
 
 
 type Query {

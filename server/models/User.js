@@ -26,7 +26,8 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 			minlength: 8
-		}
+		},
+		gifts: [{ type: Schema.Types.ObjectId, ref: 'Gift' }]
 	}
 )
 
