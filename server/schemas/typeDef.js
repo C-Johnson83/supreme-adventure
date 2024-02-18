@@ -10,7 +10,7 @@ type User {
 	lastName: String!
 	email: String!
 	lists: [List]
-	gifts: [Gift]
+	items: [Item]
 }
 
 type List {

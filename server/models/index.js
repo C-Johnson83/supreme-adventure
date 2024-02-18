@@ -1,8 +1,8 @@
 const User = require("./User")
-const Gift = require("./Gift")
+const Item = require("./Item")
 
 
 module.exports = {
     User, 
-    Gift,
+    Item,
 }

@@ -27,7 +27,7 @@ const userSchema = new Schema(
 			required: true,
 			minlength: 8
 		},
-		gifts: [{ type: Schema.Types.ObjectId, ref: 'Gift' }]
+		items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
 	}
 )
 
