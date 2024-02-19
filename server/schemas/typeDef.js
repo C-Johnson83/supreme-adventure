@@ -10,7 +10,7 @@ type User {
 	lastName: String!
 	email: String!
 	lists: [List]
-	items: [Item]
+	
 }
 
 type List {
@@ -43,6 +43,7 @@ type Mutation {
 type Query {
 	user(_id: ID!): User
 	list(_id: ID!): List
+	item(_id: ID!): Item
 }
 `
 

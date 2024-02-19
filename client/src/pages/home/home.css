@@ -1,15 +1,10 @@
-.hero {
+
+/*_____ HOME CSS _____*/
+.homeHero {
   background-image: url('https://wallpapercave.com/wp/wp2890699.jpg');
 }
 
-.btn {
-  background-image:linear-gradient(-45deg, #6a1779,#1b368d);
-  color: #fff;
-  border-style: solid;
-  border-color: #fff;
-  border-width: 1px;
+.homeBtn {
+  background-image: linear-gradient(-45deg, #6a1779, #1b368d);
 }
 
-.btn:hover {
-  background-color: #1b368d;
-}
