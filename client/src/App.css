@@ -1,3 +1,5 @@
+/*_____ GLOBAL CSS _____*/
+
 body {
     margin: 0;
     padding: 0;
@@ -29,15 +31,17 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+    width: 25%;
+    background-color: #0f1010;
 }
 
 .content h1 {
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .content p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1em;
+    margin: 15%;
 }
 
 .btn {
@@ -46,4 +50,27 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    color: #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+    margin-bottom: 5%;
+}
+
+.btn:hover {
+    background-color: #1b368d;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form p {
+    margin: 10% 60% 0 0;
+    color: #ffffff;
 }

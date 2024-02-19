@@ -5,8 +5,9 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/index.jsx';
 import Users from './pages/users/index.jsx';
-import Login from './pages/login/index.jsx';
-
+import LoginForm from './pages/loginForm/index.jsx';
+import Event from './pages/event/index.jsx';
+import SignupForm from './pages/signupForm/index.jsx';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -22,7 +23,15 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/login',
-				element: <Login />
+				element: <LoginForm />
+			},
+			{
+				path: '/event',
+				element: <Event />
+			},
+			{
+				path: '/signup',
+				element: <SignupForm />
 			}
 		]
 	}
