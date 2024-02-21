@@ -9,6 +9,8 @@ const httpLink = createHttpLink({
 
 import { StoreProvider } from './utils/GlobalStore';
 
+import Navbar from "./components/Navbar"
+
 const authLink = setContext((_, { headers }) => {
 	const token = localStorage.getItem('id_token');
 
@@ -29,6 +31,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<StoreProvider>
+				<Navbar />
 				<Outlet />
 			</StoreProvider>
 		</ApolloProvider>
