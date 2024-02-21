@@ -1,5 +1,5 @@
 
-import './home.css'
+import '../css/home.css'
 const Home = () => {
 
 

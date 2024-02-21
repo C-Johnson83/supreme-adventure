@@ -3,11 +3,11 @@ import App from './App.jsx';
 import './App.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/home/index.jsx';
-import Users from './pages/users/index.jsx';
-import LoginForm from './pages/loginForm/index.jsx';
-import Event from './pages/event/index.jsx';
-import SignupForm from './pages/signupForm/index.jsx';
+import Home from './pages/Home.jsx';
+import Users from './pages/Users.jsx';
+import LoginForm from './components/LoginForm.jsx';
+import Event from './pages/Event.jsx';
+import SignupForm from './components/SignupForm.jsx';
 const router = createBrowserRouter([
 	{
 		path: '/',

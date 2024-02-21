@@ -33,7 +33,7 @@ const userSchema = new Schema(
 			required: true,
 			minlength: 8
 		},
-		list: [{ type: Schema.Types.ObjectId, ref: 'List' }]
+		//list: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 	}
 )
 
@@ -45,7 +45,7 @@ userSchema.pre("save", async function (next) {
 	next();
 })
 
-userSchema.method.isCorrectPassword = async function (password){
+userSchema.methods.isCorrectPassword = async function (password){
 	return bcrypt.compare(password, this.password)
 }
 

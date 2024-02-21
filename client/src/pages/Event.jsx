@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import LoginForm from '../loginForm'; 
-import SignupForm from '../signupForm'; 
+import LoginForm from '../components/LoginForm'; 
+import SignupForm from '../components/SignupForm'; 
 
-import './event.css';
+import '../css/event.css';
 
 const Event = () => {
     const [items, setItems] = useState([{ name: '', link: '', purchased: false }]); // State to store list of items
