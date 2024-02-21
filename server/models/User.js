@@ -22,12 +22,18 @@ const userSchema = new Schema(
 			required: true,
 			trim: true
 		},
+		email:{
+			type: String,
+			required: true,
+			unique: true,
+			match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+		},
 		password: {
 			type: String,
 			required: true,
 			minlength: 8
 		},
-		items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
+		list: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 	}
 )
 

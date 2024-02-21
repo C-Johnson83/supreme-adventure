@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const listSchema = new Schema(
     {
-        owner: {
+        username: {
             type: String,
             required: true
         },
