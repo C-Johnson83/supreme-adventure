@@ -1,42 +1,110 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
-import './loginForm.css';
+// see SignupForm.js for comments
+
+import { useState, useEffect } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
+
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
 
 const LoginForm = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-    const handleLogin = () => {
-        // Implement login logic here
-        console.log('Logging in with username:', username, 'and password:', password);
-    };
+  const [login, { error }] = useMutation(LOGIN_USER);
 
-    const pageChange = () => {
-        navigate('/signup');
-    };
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
 
-    return (
-        <div className="hero loginHero">
-            <div className="overlay"></div>
-            <div className="content">
-                <h2>Login</h2>
-                <form onSubmit={handleLogin}>
-                    <div className="form-group">
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <button className="btn loginBtn" type="submit">Login</button> or
-                    <button className="btn loginBtn" onClick={pageChange}>Sign Up</button>
-                    
-                </form>
-            </div>
-        </div>
-    );
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await login({
+        variables: { ...userFormData },
+      });
+
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setUserFormData({
+      email: '',
+      password: '',
+    });
+  };
+
+  return (
+    <>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your login credentials!
+        </Alert>
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your email"
+            name="email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Email is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Button
+          disabled={!(userFormData.email && userFormData.password)}
+          type="submit"
+          variant="success"
+        >
+          Submit
+        </Button>
+      </Form>
+    </>
+  );
 };
 
 export default LoginForm;
