@@ -18,7 +18,13 @@ module.exports = {
 		let token = req.body.token || req.query.token || req.headers.authorization || "";
 
     
-		token = token.split(' ').pop().trim();
+		if (req.headers.authorization) {
+			token = token.split(' ').pop().trim();
+		  }
+	  
+		  if (!token) {
+			return req;
+		  }
 
 
 		if(token.length === 0){
