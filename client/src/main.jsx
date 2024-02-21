@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import App from './App.jsx';
-import './App.css';
+//import './App.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home.jsx';
@@ -21,18 +23,18 @@ const router = createBrowserRouter([
 				path: '/users',
 				element: <Users />
 			},
-			{
+			/*{
 				path: '/login',
 				element: <LoginForm />
-			},
+			},*/
 			{
 				path: '/event',
 				element: <Event />
 			},
-			{
+			/*{
 				path: '/signup',
 				element: <SignupForm />
-			}
+			}*/
 		]
 	}
 ]);
