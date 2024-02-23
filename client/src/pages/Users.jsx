@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USERS } from '../utils/queries';
-import { SAVE_LIST } from '../utils/mutations';
+//import { QUERY_USERS } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
+import { ADD_LIST } from '../utils/mutations';
 import {
 	Container,
 	Col,
@@ -17,24 +18,29 @@ const Users = () => {
     const [accessCode, setAccessCode] = useState('');
 	const [eventDate, setDate] = useState('');
 	const [searchInput, setSearchInput] = useState('');
-	const { loading, data } = useQuery(QUERY_USERS);
-	const [saveList] = useMutation(SAVE_LIST);
+    const {loading, data } = useQuery(QUERY_ME, { errorPolicy: "all" });
+	//const { loading, data } = useQuery(QUERY_USERS);
+	const [addList] = useMutation(ADD_LIST);
 
 	// const users = data?.users || [];
     
-    const handleSaveList = async () => {
+    const userData = data?.me || {};
+    
+    const handleAddList = async (event) => {
+        event.preventDefault()
         console.log('i made it here')
+        console.log(userData)
         try {
-            const response = await saveList({
+            const testData = {
                 variables: {
-                    username: 'example_username', 
+                    username: 'dbrainz', 
                     accessCode: 'example_access_code',
                     listType: 'example_list_type', 
-                    listName: title, 
-                    eventDate: '',
-                    items: [] 
+                    listName: 'listName', 
 				}
-            });
+            }
+            console.log(testData)
+            const response = await addList(testData);
             console.log('List saved successfully:', response);
         } catch (error) {
             console.error('Error saving list:', error);
@@ -46,7 +52,7 @@ const Users = () => {
 	// 	event.preventDefault();
 	// 	// Implement your form submission logic here
 	// 	const { items } = await response.json();
-	// };
+	 //};
 
 	return (
         <>
@@ -55,7 +61,7 @@ const Users = () => {
                 <div className="content">
                     <h1>Landing page</h1>
                     <p>Add items with names, links!</p>
-                    <Form onSubmit={handleSaveList}>
+                    <Form onSubmit={handleAddList}>
                         <Row>
                             <Col>
                                 <Form.Control
