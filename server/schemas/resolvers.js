@@ -1,4 +1,4 @@
-const { User, Item } = require("../models");
+const { User, Item, List } = require("../models");
 const { signToken, AuthenticationError } = require('../utils/auth')
 
 const resolvers = {
@@ -52,38 +52,50 @@ const resolvers = {
       }
     },
 
-    deleteItemFromList: async (_, { listId, itemId }) => {
+    saveList: async (_, { username, accessCode, listType, listName, eventDate }) => {
       try {
-        const list = await Item.findById(listId);
-        if (!list) {
-          throw new Error('List not found');
-        }
-        const itemIndex = list.items.findIndex(item => item._id.toString() === itemId);
-        if (itemIndex === -1) {
-          throw new Error('Item not found in list');
-        }
-        const deletedItem = list.items[itemIndex];
-        list.items.splice(itemIndex, 1);
+        const list = await new List(username, accessCode, listType, listName, eventDate);
         await list.save();
-        return deletedItem;
+        return list;
       } catch (error) {
-        throw new Error(`Failed to delete item from list: ${error.message}`);
-      }
-    },
-
-    updateItemInList: async (_, { itemId, name, link, quantity, quantityBought, note }) => {
-      try {
-        const item = await Item.findByIdAndUpdate(itemId, { name, link, quantity, quantityBought, note }, { new: true });
-        if (!item) {
-          throw new Error('Item not found');
-        }
-        return item;
-      } catch (error) {
-        throw new Error(`Failed to update item in list: ${error.message}`);
+        throw new Error(`Failed to add item to list: ${error.message}`);
       }
     }
+    
 
+      
+    // deleteItemFromList: async (_, { listId, itemId }) => {
+    //     try {
+    //       const list = await Item.findById(listId);
+    //       if (!list) {
+    //         throw new Error('List not found');
+    //       }
+    //       const itemIndex = list.items.findIndex(item => item._id.toString() === itemId);
+    //       if (itemIndex === -1) {
+    //         throw new Error('Item not found in list');
+    //       }
+    //       const deletedItem = list.items[itemIndex];
+    //       list.items.splice(itemIndex, 1);
+    //       await list.save();
+    //       return deletedItem;
+    //     } catch (error) {
+    //       throw new Error(`Failed to delete item from list: ${error.message}`);
+    //     }
+    //   },
+
+    //     updateItemInList: async (_, { itemId, name, link, quantity, quantityBought, note }) => {
+    //       try {
+    //         const item = await Item.findByIdAndUpdate(itemId, { name, link, quantity, quantityBought, note }, { new: true });
+    //         if (!item) {
+    //           throw new Error('Item not found');
+    //         }
+    //         return item;
+    //       } catch (error) {
+    //         throw new Error(`Failed to update item in list: ${error.message}`);
+    //       }
+    //     }
+
+    // }
   }
-};
-
-module.exports = resolvers;
+}
+  module.exports = resolvers;
