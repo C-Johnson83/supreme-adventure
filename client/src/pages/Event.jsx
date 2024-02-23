@@ -31,10 +31,6 @@ const Event = () => {
             <div className="hero eventHero">
                 <div className="overlay"></div>
                 <div className="content">
-                    {/* Render the Login component */}
-                    <LoginForm />
-                    {/* Render the Signup component */}
-                    <SignupForm />
                     <h1>Welcome to Our Event Registry</h1>
                     <p>Add items with names, links, and purchase status!</p>
                     <ul>
