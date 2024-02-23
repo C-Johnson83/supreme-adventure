@@ -24,18 +24,19 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SAVE_LIST = gql`
-  mutation saveList($username: String!, $accessCode: String!, $listType: String!, $listName: String!, $eventDate: Date) {
-    saveList(username: $username, accessCode: $accessCode, listType: $listType, listName: $listName, eventDate: $eventDate) {
-      _id
-      username
-      accessCode
-      listType 
-      listName
-     
+export const ADD_LIST = gql`
+  mutation addList($username: String!, $accessCode: String!, $listType: String!, $listName: String!) {
+    addList(username: $username, accessCode: $accessCode, listType: $listType, listName: $listName ) {
 
+            _id
+            username
+            listName
+          
+      
     }
   }
 `;
+
+
 
 

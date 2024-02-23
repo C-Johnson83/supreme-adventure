@@ -15,7 +15,7 @@ type User {
 
 type List {
 	_id: ID!,
-	owner: String!
+	username: String!
 	accessCode: String!,
 	listType: String!,
 	listName: String!,
@@ -42,11 +42,12 @@ type Mutation {
     addItemToList(listId: ID!, name: String!, link: String, quantity: Int!, note: String): Item
     deleteItemFromList(listId: ID!, itemId: ID!): Item
     updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
-	saveList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date): List
+	addList(username: String!, accessCode: String!, listType: String!, listName: String!): List
 }
 
 
 type Query {
+	me: User
 	user(_id: ID!): User
 	list(_id: ID!): List
 	item(_id: ID!): Item

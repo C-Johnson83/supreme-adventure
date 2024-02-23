@@ -3,6 +3,18 @@ const { signToken, AuthenticationError } = require('../utils/auth')
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (context.user) {
+        console.log("query:me")
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
+
+        return userData;
+      }
+
+      throw AuthenticationError;
+    },
+  
+  
     user: async (_, { _id }) => {
       try {
         const user = await User.findById(_id).select("-password");
@@ -52,14 +64,19 @@ const resolvers = {
       }
     },
 
-    saveList: async (_, { username, accessCode, listType, listName, eventDate }) => {
-      try {
+//    saveList: async (_, { username, accessCode, listType, listName, eventDate }) => {
+    addList: async ( parent, args) => {
+      console.log("addList")
+      const listData = await List.create(args)
+      console.log(listData)
+      /*try {
         const list = await new List(username, accessCode, listType, listName, eventDate);
         await list.save();
         return list;
       } catch (error) {
         throw new Error(`Failed to add item to list: ${error.message}`);
-      }
+      } */
+      return { listData }
     }
     
 

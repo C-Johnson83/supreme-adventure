@@ -33,7 +33,7 @@ const userSchema = new Schema(
 			required: true,
 			minlength: 8
 		},
-		//list: [{ type: Schema.Types.ObjectId, ref: 'List' }]
+		lists: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 	}
 )
 
