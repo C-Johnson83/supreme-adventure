@@ -6,7 +6,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         console.log("query:me")
-        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
+        const userData = await User.findOne({ _id: context.user._id }).populate('lists').select('-__v -password');
 
         return userData;
       }
@@ -64,14 +64,30 @@ const resolvers = {
       }
     },
 
-//    saveList: async (_, { username, accessCode, listType, listName, eventDate }) => {
-    addList: async ( parent, args) => {
-      console.log("addList")
-      const listData = await List.create(args)
-      console.log("New List",listData)
-
-      return  listData 
+  addList: async (parent, args, context) => {
+    try {
+     
+      if (!context.user) {
+        throw new AuthenticationError("You must be logged in to add a list.");
+      }
+  
+      const listData = await List.create(args);
+  
+      await User.findByIdAndUpdate(
+        context.user._id, 
+        { $push: { lists: listData._id } },
+        { new: true }
+      );
+  
+      console.log("\nNew List Created\n", listData);
+  
+      return listData;
+    } catch (error) {
+      console.error("Error adding list:", error);
+      throw new Error("Failed to add list. Please try again.");
     }
+  }
+  
     
 
       
