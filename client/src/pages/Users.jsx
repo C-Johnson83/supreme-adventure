@@ -30,13 +30,14 @@ const Users = () => {
         event.preventDefault()
         console.log('i made it here')
         console.log(userData)
+        console.log(event)
         try {
             const testData = {
                 variables: {
-                    username: 'dbrainz', 
-                    accessCode: 'example_access_code',
-                    listType: 'example_list_type', 
-                    listName: 'listName', 
+                    username: userData.username, 
+                    accessCode: event.target[0].attributes[3].nodeValue,
+                    listType: event.target[1].attributes[3].nodeValue, 
+                    listName: event.target[2].attributes[3].nodeValue, 
 				}
             }
             console.log(testData)
