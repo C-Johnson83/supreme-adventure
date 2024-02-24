@@ -28,23 +28,29 @@ const Users = () => {
     
     const handleAddList = async (event) => {
         event.preventDefault()
-        console.log('i made it here')
-        console.log(userData)
+        // console.log('i made it here')
+        // console.log(userData)
         console.log(event)
         try {
             const testData = {
                 variables: {
                     username: userData.username, 
-                    accessCode: event.target[0].attributes[3].nodeValue,
-                    listType: event.target[1].attributes[3].nodeValue, 
-                    listName: event.target[2].attributes[3].nodeValue, 
+                    accessCode,
+                    listType,
+                    listName,
+                    eventDate
 				}
             }
             console.log(testData)
             const response = await addList(testData);
             console.log('List saved successfully:', response);
+
+            setAccessCode('');
+            setListType('');
+            setListName('');
+            setDate('');
         } catch (error) {
-            console.error('Error saving list:', error);
+            console.error('Error saving list:', error+error.message);
         }
     };
 
