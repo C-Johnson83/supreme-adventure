@@ -68,15 +68,9 @@ const resolvers = {
     addList: async ( parent, args) => {
       console.log("addList")
       const listData = await List.create(args)
-      console.log(listData)
-      /*try {
-        const list = await new List(username, accessCode, listType, listName, eventDate);
-        await list.save();
-        return list;
-      } catch (error) {
-        throw new Error(`Failed to add item to list: ${error.message}`);
-      } */
-      return { listData }
+      console.log("New List",listData)
+
+      return  listData 
     }
     
 
