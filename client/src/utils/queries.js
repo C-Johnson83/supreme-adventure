@@ -10,6 +10,8 @@ export const QUERY_ME = gql`
         _id
         listType
         listName
+        accessCode
+        eventDate
      
       }
     }
