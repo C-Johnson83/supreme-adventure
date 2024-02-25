@@ -42,7 +42,7 @@ type Mutation {
     addItemToList(listId: ID!, name: String!, link: String, quantity: Int!, note: String): Item
     deleteItemFromList(listId: ID!, itemId: ID!): Item
     updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
-	addList(username: String!, accessCode: String!, listType: String!, listName: String!): List
+	addList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date!): List
 }
 
 
