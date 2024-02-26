@@ -56,6 +56,8 @@ const Users = () => {
 
             console.log('List saved successfully:', response);
 
+            setCreatedLists([...createdLists, response.data.addList]);
+            
             setAccessCode('');
             setListType('');
             setListName('');
