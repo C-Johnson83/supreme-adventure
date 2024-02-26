@@ -49,7 +49,7 @@ type Mutation {
 
 type Query {
 	me: User
-	getListById(_id: ID!): List
+	getListById(id: ID!): List
 	user(_id: ID!): User
 	list(_id: ID!): List
 	item(_id: ID!): Item

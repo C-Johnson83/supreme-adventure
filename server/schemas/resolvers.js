@@ -24,10 +24,10 @@ const resolvers = {
       }
     },
 
-    getListById: async (_, { _id }) => {
+    getListById: async (_, { id }) => {
       try {
         console.log("query:list")
-        const list = await List.findById(_id).select('-__v');
+        const list = await List.findById(id).select('-__v');
 
         return list;
       } catch (error) {
