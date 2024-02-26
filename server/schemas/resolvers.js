@@ -62,13 +62,14 @@ const resolvers = {
     },
 
 
-    addItemToList: async (_, { listId, name, link, quantity, note }) => {
+    addItemToList: async (_, { id, title, description, link, user }) => {
+      console.log('adding item to list');
       try {
-        const list = await Item.findById(listId);
+        const list = await List.findById(id).select('-__v');
         if (!list) {
           throw new Error('List not found');
         }
-        const newItem = new Item({ name, link, quantity, note });
+        const newItem = new Item({ title, description, link, user });
         list.items.push(newItem);
         await list.save();
         return newItem;
@@ -76,7 +77,7 @@ const resolvers = {
         throw new Error(`Failed to add item to list: ${error.message}`);
       }
     },
-
+    
     addList: async (parent, args, context) => {
       try {
 

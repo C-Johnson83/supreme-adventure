@@ -25,10 +25,9 @@ type List {
 
 type Item {
 	_id: ID!,
-	name: String!,
+	title: String!,
+	description: String,
 	link: String,
-	quantity: Int!,
-	quantityBought: Int!,
 	note: String
 } 
 
@@ -39,7 +38,7 @@ type Auth {
 
 type Mutation {
 	login(email: String!, password: String!): Auth
-    addItemToList(listId: ID!, name: String!, link: String, quantity: Int!, note: String): Item
+    addItemToList(id: ID!, title: String!, description: String!, link: String, note: String): Item
     deleteItemFromList(listId: ID!, itemId: ID!): Item
     updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
 	addList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date!): List

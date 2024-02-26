@@ -16,7 +16,7 @@ export const QUERY_ME = gql`
       }
     }
   }
-`
+`;
 
 
 export const QUERY_LIST = gql`
@@ -28,6 +28,14 @@ query getListById($id: ID!) {
     accessCode
     username
     _id
+    items {
+      _id
+      title
+      description
+      link
+      note
+    }
   }
 }
 `;
+

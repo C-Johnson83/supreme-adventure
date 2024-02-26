@@ -31,8 +31,21 @@ export const ADD_LIST = gql`
             _id
             username
             listName
+            listType
           eventDate
       
+    }
+  }
+`;
+
+export const ADD_ITEM_TO_LIST = gql`
+  mutation addItemToList($id: ID!, $title: String!, $description: String!, $link: String!, $note: String!) {
+    addItemToList(id: $id, title: $title, description: $description, link: $link, note: $note) {
+      _id
+      title
+      description
+      link
+      note
     }
   }
 `;
