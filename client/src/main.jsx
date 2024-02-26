@@ -7,9 +7,9 @@ import App from './App.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Users from './pages/Users.jsx';
-import LoginForm from './components/LoginForm.jsx';
-import Event from './pages/Event.jsx';
-import SignupForm from './components/SignupForm.jsx';
+
+import List from './pages/List.jsx';
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
 			},
 
 			{
-				path: '/event',
-				element: <Event />
+				path: '/list',
+				element: <List />
 			},
 
 		]

@@ -13,6 +13,7 @@ import {
     Card,
     Row
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Users = () => {
 
@@ -27,7 +28,7 @@ const Users = () => {
 
     const userData = data?.me || {};
 
-    console.log("why can't I get to lists with userData.lists?", userData, "\n\n", userData.lists)
+    console.log("lists", userData, "\n\n", userData.lists)
 
 
 
@@ -54,6 +55,8 @@ const Users = () => {
             const response = await addList(testData);
 
             console.log('List saved successfully:', response);
+
+            setCreatedLists([...createdLists, response.data.addList]);
 
             setAccessCode('');
             setListType('');
@@ -106,7 +109,7 @@ const Users = () => {
                             <DatePicker
                                 selected={eventDate}
                                 onChange={date => setDate(date)}
-                                dateFormat="MM-dd-yyyy hh:mm"
+                                dateFormat="MM-dd-yyyy"
                                 type="text"
                                 placeholderText="Select Date"
                             />
@@ -134,6 +137,7 @@ const Users = () => {
                                             <br />
                                             Event Date: {list.eventDate}
                                         </Card.Text>
+                                        <Link to={`/list`}>View List</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

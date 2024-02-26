@@ -13,8 +13,8 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-  
-  
+
+
     user: async (_, { _id }) => {
       try {
         const user = await User.findById(_id).select("-password");
@@ -22,8 +22,17 @@ const resolvers = {
       } catch (error) {
         throw new Error(`Failed to fetch user: ${error.message}`);
       }
-    }
+    },
 
+    getListById: async (_, { _id }) => {
+      try {
+        console.log("query:list")
+        const list = await List.findById(_id).select('-__v');
+
+        return list;
+      } catch (error) {
+      throw AuthenticationError;
+    }}
   },
 
   Mutation: {
@@ -33,6 +42,8 @@ const resolvers = {
 
       return { token, user };
     },
+
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -49,6 +60,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+
     addItemToList: async (_, { listId, name, link, quantity, note }) => {
       try {
         const list = await Item.findById(listId);
@@ -64,33 +77,33 @@ const resolvers = {
       }
     },
 
-  addList: async (parent, args, context) => {
-    try {
-     
-      if (!context.user) {
-        throw new AuthenticationError("You must be logged in to add a list.");
-      }
-  
-      const listData = await List.create(args);
-  
-      await User.findByIdAndUpdate(
-        context.user._id, 
-        { $push: { lists: listData._id } },
-        { new: true }
-      );
-  
-      console.log("\nNew List Created\n", listData);
-  
-      return listData;
-    } catch (error) {
-      console.error("Error adding list:", error);
-      throw new Error("Failed to add list. Please try again.");
-    }
-  }
-  
-    
+    addList: async (parent, args, context) => {
+      try {
 
-      
+        if (!context.user) {
+          throw new AuthenticationError("You must be logged in to add a list.");
+        }
+
+        const listData = await List.create(args);
+
+        await User.findByIdAndUpdate(
+          context.user._id,
+          { $push: { lists: listData._id } },
+          { new: true }
+        );
+
+        console.log("\nNew List Created\n", listData);
+
+        return listData;
+      } catch (error) {
+        console.error("Error adding list:", error);
+        throw new Error("Failed to add list. Please try again.");
+      }
+    }
+
+
+
+
     // deleteItemFromList: async (_, { listId, itemId }) => {
     //     try {
     //       const list = await Item.findById(listId);
@@ -125,4 +138,4 @@ const resolvers = {
     // }
   }
 }
-  module.exports = resolvers;
+module.exports = resolvers;
