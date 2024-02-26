@@ -43,19 +43,18 @@ type Mutation {
     deleteItemFromList(listId: ID!, itemId: ID!): Item
     updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
 	addList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date!): List
+	addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
 }
 
 
 type Query {
 	me: User
+	getListById(_id: ID!): List
 	user(_id: ID!): User
 	list(_id: ID!): List
 	item(_id: ID!): Item
 }
 
-type Mutation {
-	addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
-}
 `
 
 

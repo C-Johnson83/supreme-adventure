@@ -57,7 +57,7 @@ const Users = () => {
             console.log('List saved successfully:', response);
 
             setCreatedLists([...createdLists, response.data.addList]);
-            
+
             setAccessCode('');
             setListType('');
             setListName('');
@@ -137,7 +137,7 @@ const Users = () => {
                                             <br />
                                             Event Date: {list.eventDate}
                                         </Card.Text>
-                                        <Link to={`/event/${list.id}`}>View Event</Link>
+                                        <Link to={`/list`}>View List</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

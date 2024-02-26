@@ -16,4 +16,17 @@ export const QUERY_ME = gql`
       }
     }
   }
+`
+
+
+export const QUERY_LIST = gql`
+query getListById($_Id: ID!) {
+  getListById(_Id: $_Id) {
+      _id
+      listName
+      listType
+      accessCode
+      eventDate
+  }
+}
 `;
