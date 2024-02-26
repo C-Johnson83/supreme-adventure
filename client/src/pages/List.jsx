@@ -1,39 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_LIST } from '../utils/queries';
 
 const List = () => {
-    const { _id } = useParams();
-    console.log(_id)
-    
-    const { loading,error, data } = useQuery(QUERY_LIST, {
-        variables: { Id: _id },
-        errorPolicy: "all" 
-     });
+    const { id } = useParams();
+    console.log(id);
+
+
+    const { loading, error, data } = useQuery(QUERY_LIST, {
+        variables: { id: id },
+        errorPolicy: "all"
+    });
 
     useEffect(() => {
         // You can perform additional actions when data or loading state changes
+        console.log("Data:", data);
     }, [data, loading]);
 
     if (loading) return <p>Loading...</p>;
-if (error) return <p>Error: {error.message}</p>; // Display error message if query fails
+    if (error) return <p>Error: {error.message}</p>;
 
-const list = data; // Assuming the GraphQL query returns the list under the name "getListById"
+    const list = data?.getListById;
     console.log('made it here')
 
     return (
         <div>
             <h2>List Details</h2>
-            <p>List Name: {list.listName}</p>
-            <p>List Type: {list.listType}</p>
-            <p>Access Code: {list.accessCode}</p>
-            <p>Event Date: {list.eventDate}</p>
-           
+            {list && (
+                <>
+                    <p>List Name: {list.listName}</p>
+                    <p>List Type: {list.listType}</p>
+                    <p>Access Code: {list.accessCode}</p>
+                    <p>Event Date: {list.eventDate}</p>
+                </>
+            )}
         </div>
+        
     );
 }
+
 export default List;
+
 //import '../css/event.css';
 
 // const List = () => {

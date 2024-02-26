@@ -20,13 +20,14 @@ export const QUERY_ME = gql`
 
 
 export const QUERY_LIST = gql`
-query getListById($_Id: ID!) {
-  getListById(_Id: $_Id) {
-      _id
-      listName
-      listType
-      accessCode
-      eventDate
+query getListById($id: ID!) {
+  getListById(id: $id) {
+    listType
+    listName
+    eventDate
+    accessCode
+    username
+    _id
   }
 }
 `;

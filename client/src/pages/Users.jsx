@@ -33,10 +33,16 @@ const Users = () => {
 
 
     useEffect(() => {
-        if (userData.lists) {
-            setCreatedLists(userData.lists);
-            console.log('there are lists')
-        }
+        // Function to set created lists
+        const setInitialCreatedLists = () => {
+            if (userData.lists) {
+                setCreatedLists(userData.lists);
+                console.log('there are lists')
+            }
+        };
+        
+        // Set created lists when component mounts
+        setInitialCreatedLists();
     }, [userData.lists]);
 
     const handleAddList = async (event) => {
@@ -137,7 +143,8 @@ const Users = () => {
                                             <br />
                                             Event Date: {list.eventDate}
                                         </Card.Text>
-                                        <Link to={`/list`}>View List</Link>
+                                        <Link to={`/list/${list._id}`}>View List</Link>
+
                                     </Card.Body>
                                 </Card>
                             </Col>
