@@ -28,7 +28,7 @@ type Item {
 	title: String!,
 	description: String,
 	link: String,
-	note: String
+	
 } 
 
 type Auth {
@@ -38,9 +38,9 @@ type Auth {
 
 type Mutation {
 	login(email: String!, password: String!): Auth
-    addItemToList(id: ID!, title: String!, description: String!, link: String, note: String): Item
+    addItemToList(id: ID!, title: String!, description: String!, link: String): List
     deleteItemFromList(listId: ID!, itemId: ID!): Item
-    updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int, note: String): Item
+    updateItemInList(itemId: ID!, name: String, link: String, quantity: Int, quantityBought: Int): Item
 	addList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date!): List
 	addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
 }

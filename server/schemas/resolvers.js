@@ -62,14 +62,14 @@ const resolvers = {
     },
 
 
-    addItemToList: async (_, { id, title, description, link, user }) => {
+    addItemToList: async (_, { id, title, description, link }) => {
       console.log('adding item to list');
       try {
         const list = await List.findById(id).select('-__v');
         if (!list) {
           throw new Error('List not found');
         }
-        const newItem = new Item({ title, description, link, user });
+        const newItem = { title, description, link };
         list.items.push(newItem);
         await list.save();
         return newItem;
