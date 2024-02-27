@@ -49,6 +49,7 @@ type Mutation {
 type Query {
 	me: User
 	getListById(id: ID!): List
+	getListByAccessCode(accessCode: String!): List
 	user(_id: ID!): User
 	list(_id: ID!): List
 	item(_id: ID!): Item

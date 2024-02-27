@@ -39,3 +39,22 @@ query getListById($id: ID!) {
 }
 `;
 
+export const SEARCH_ACCESS_CODE = gql`
+  query getListByAccessCode($accessCode: String!) {
+    getListByAccessCode(accessCode: $accessCode) {
+      listType
+      listName
+      eventDate
+      accessCode
+      username
+      _id
+      items {
+        _id
+        title
+        description
+        link
+      }
+    }
+  }
+`;
+
