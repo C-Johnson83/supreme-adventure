@@ -78,7 +78,7 @@ const Users = () => {
 
     return (
         <>
-            <div className="ListContent">
+            <div className="listContent">
                 <h1>Hello {userData.username}</h1>
                 <p>Lets make a list for your upcoming event!</p>
                 <Form onSubmit={handleAddList}>
@@ -127,7 +127,7 @@ const Users = () => {
                     </Row>
                 </Form>
             </div>
-            <div className="hero eventHero">
+            <div className="hero">
                 <div className="overlay"></div>
 
 
@@ -135,7 +135,7 @@ const Users = () => {
                     <Row>
                         {createdLists.map((list, index) => (
                             <Col key={index} md={4}>
-                                <Card>
+                                <Card className='Card'>
                                     <Card.Body>
                                         <Card.Title>{list.listName}</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">{list.listType}</Card.Subtitle>

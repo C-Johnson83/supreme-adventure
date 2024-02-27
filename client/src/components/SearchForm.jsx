@@ -50,66 +50,64 @@ const SearchForm = () => {
     console.log('search', searchResults);
     return (
         <>
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-                <Alert
-                    dismissible
-                    onClose={() => setShowAlert(false)}
-                    show={showAlert}
-                    variant="danger"
-                >
-                    Something went wrong with your search!
-                </Alert>
-                <Form.Group className='mb-3'>
-                    <Form.Label htmlFor="searchTerm">Search Access Code</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter access code"
-                        name="searchTerm"
-                        onChange={handleInputChange}
-                        value={searchTerm}
-                        required
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Access code is required!
-                    </Form.Control.Feedback>
-                </Form.Group>
-                <Button
-                    disabled={!searchTerm}
-                    type="submit"
-                    variant="primary"
-                >
-                    {loading ? 'Searching...' : 'Search'}
-                </Button>
-            </Form>
-            {searchResults && (
-                <div>
-                    <div className='item-details'>
-                        <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
-                        <p>Event Date: {searchResults.eventDate}</p>
-                        <p>Access Code: {searchResults.accessCode}</p>
-                    </div>
-                    <p>Items:</p>
-                    <Row>
-                        {searchResults.items.map((item, index) => (
-                            <Col key={index} md={4}>
-                                <Card>
-                                    <Card.Body>
-                                        <Card.Title>{item.title}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
-                                        <Card.Text>
-                                            To view or purchase the item clink the link below
-                                        </Card.Text>
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                            Item Link
-                                        </a>
-                                    </Card.Body>
-                                </Card>
+            <div className="hero">
+                <div className="overlay"></div>
+                <div className="content">
+                    <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+                        <Alert
+                            dismissible
+                            onClose={() => setShowAlert(false)}
+                            show={showAlert}
+                            variant="danger"
+                        >
+                            Something went wrong with your search!
+                        </Alert>
+                        <Form.Group className='mb-3'>
+                            <Form.Label htmlFor="searchTerm">Search Access Code</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter access code"
+                                name="searchTerm"
+                                onChange={handleInputChange}
+                                value={searchTerm}
+                                required
+                            />
+                            <Form.Control.Feedback type="invalid">
+                                Access code is required!
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                    </Form>
+                    {searchResults && (
+                        <div>
+                            <div className='item-details'>
+                                <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
+                                <p>Event Date: {searchResults.eventDate}</p>
+                                <p>Access Code: {searchResults.accessCode}</p>
+                            </div>
+                            <p>Items:</p>
+                            <Row>
+                                {searchResults.items.map((item, index) => (
+                                    <Col key={index} md={4}>
+                                        <Card>
+                                            <Card.Body>
+                                                <Card.Title>{item.title}</Card.Title>
+                                                <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
+                                                <Card.Text>
+                                                    To view or purchase the item clink the link below
+                                                </Card.Text>
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                    Item Link
+                                                </a>
+                                            </Card.Body>
+                                        </Card>
 
-                            </Col>
-                        ))}
-                    </Row>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </>
     );
 };
