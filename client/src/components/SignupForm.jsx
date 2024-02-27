@@ -67,14 +67,13 @@ const SignupForm = () => {
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit} className="neumorphic-signup-form">
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
           variant="danger"
+          className="neumorphic-alert"
         >
           Something went wrong with your signup!
         </Alert>
@@ -88,6 +87,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.username}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Username is required!
@@ -103,6 +103,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.firstName}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             First name is required!
@@ -118,6 +119,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.lastName}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Last name is required!
@@ -133,6 +135,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -148,6 +151,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
@@ -163,6 +167,7 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
+          className="neumorphic-button"
         >
           Submit
         </Button>

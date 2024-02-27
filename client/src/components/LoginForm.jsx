@@ -63,12 +63,13 @@ const LoginForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit} className="neumorphic-form">
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
           variant="danger"
+          className="neumorphic-alert"
         >
           Something went wrong with your login credentials!
         </Alert>
@@ -81,6 +82,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -96,6 +98,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
+            className="neumorphic-input"
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
@@ -105,6 +108,7 @@ const LoginForm = () => {
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
+          className="neumorphic-button"
         >
           Submit
         </Button>
