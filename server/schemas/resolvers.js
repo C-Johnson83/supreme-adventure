@@ -32,7 +32,22 @@ const resolvers = {
         return list;
       } catch (error) {
       throw AuthenticationError;
-    }}
+    }},
+
+    getListByAccessCode: async (_, { accessCode }) => {
+      
+      try {
+        const list = await List.findOne( {accessCode} ).select('-__v');
+        if (!list) {
+          throw new Error('List not found.');
+        }
+        console.log({accessCode, list});
+        return list;
+      } catch (error) {
+        throw new AuthenticationError('List not found.');
+      }
+    }
+  
   },
 
   Mutation: {

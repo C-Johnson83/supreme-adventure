@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
+
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
@@ -20,8 +21,8 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
-              <Nav.Link as={Link} to='/'>
-                Search For Lists
+              <Nav.Link as={Link} to='/searchform'>
+                Enter Access Code
               </Nav.Link>
               {/* if user is logged in show saved lists and logout */}
               {Auth.loggedIn() ? (
