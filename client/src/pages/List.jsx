@@ -13,12 +13,15 @@ const List = () => {
         errorPolicy: "all"
     });
 
-    const [addItemToList] = useMutation(ADD_ITEM_TO_LIST);
+    
+    const [addItemToList] = useMutation(ADD_ITEM_TO_LIST, {
+        refetchQueries: [{ query: QUERY_LIST, variables: { id: id } }],
+    });
     const [items, setItems] = useState([]);
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');
     const [newItemLink, setNewItemLink] = useState('');
-    // const [newItemNote, setNewItemNote] = useState('');
+    const [newItemNote, setNewItemNote] = useState('');
 
     const addItem = async () => {
         console.log('Adding item')
@@ -29,7 +32,7 @@ const List = () => {
                     title: newItemTitle,
                     description: newItemDescription,
                     link: newItemLink,
-                   
+                    note: newItemNote,
                 }
             });
             console.log('newitem', newItem);
@@ -37,7 +40,7 @@ const List = () => {
             setNewItemTitle(''); // Clear input fields after adding item
             setNewItemDescription('');
             setNewItemLink('');
-          
+            setNewItemNote('');
         } catch (error) {
             console.error('Failed to add item:', error.message);
         }
