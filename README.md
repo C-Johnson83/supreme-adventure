@@ -1,20 +1,34 @@
 # supreme-adventure
-# Event Registry README
+## Event Registry README
 
-Welcome to the Event Registry repository! This repository serves as a comprehensive solution for managing events such as weddings, birthdays, or baby showers. Whether you're organizing a joyous celebration, this registry offers the tools you need to keep track of guests, gifts, and other essential details.
+Welcome to The Three Amigos Event Registry repository! This repository serves as a comprehensive solution for managing events such as weddings, birthdays, or baby showers. When you're organizing a joyous celebration, this registry offers the tools you need to keep track of guests, gifts, and other essential details.
+
+## Introduction
+Welcome to The Three Amigos Event Registry –   
+your ultimate solution for streamlining the planning process of your special occasions.   
+Crafted with an intuitive interface and packed with robust features, our platform empowers you to effortlessly oversee invitations, track RSVPs, curate gift registries, and beyond.   
+This README offers a comprehensive overview of the repository along with detailed instructions for installation and usage.
+
+## Table of Contents
+Jump to a section below
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [License](#license)
+- [Deployed Application](#deployed-application)
 
 
-
-### User Story:
-As a user interested in organizing an event, I want to utilize the Event Registry platform to streamline my planning process.
+### User Story and Acceptance Criteria:
+As a user interested in organizing an event, I want to utilize The Three Amigos Event Registry platform to streamline my planning process.
 
 #### Scenario: Signing Up or Logging In
 
-**Given:** I am a new user or an existing user of the Event Registry platform.  
-**When:** I access the Event Registry website.  
+**Given:** I am a new user or an existing user of The Three Amigos Event Registry platform.  
+**When:** I access The Three Amigos Event Registry website.  
 **Then:**
 - If I am a new user:  
-  - I want to sign up for an account by providing a unique username and password.  
+  - I want to sign up for an account by providing a unique username, user details, and password.  
   - After signing up, I expect to be directed to the homepage/dashboard.   
 - If I am an existing user:  
   - I want to log in using my existing credentials.  
@@ -22,19 +36,19 @@ As a user interested in organizing an event, I want to utilize the Event Registr
 
 #### Scenario: Creating an Event List and Adding Items  
 
-**Given:** I am logged in and on the homepage/dashboard of the Event Registry platform.  
+**Given:** I am logged in and on the homepage/dashboard of The Three Amigos Event Registry platform.  
 **When:** I decide to organize a new event.  
 **Then:**  
-- I want to create a new event list by specifying the event's name, date, and type.  
+- I want to create a new event list by making an access code and specifying the event's type, name and date.  
 - After creating the event list, I want the option to add items to it, such as gifts or tasks related to the event.  
   
 #### Scenario: Viewing Event Lists on the Homepage
 
-**Given:** I am logged in and on the homepage/dashboard of the Event Registry platform.  
+**Given:** I am logged in and on the homepage/dashboard of The Three Amigos Event Registry platform.  
 **When:** I want to see an overview of all my event lists.  
 **Then:**
 - I expect to see each event list displayed as a card on the homepage/dashboard.
-- Each card should contain essential information about the event, such as its name, date, and location.
+- Each card should contain essential information about the event, such as its name, date, and link to the list.
 - I can click on a card to view and manage the details of the corresponding event list.  
 
 ### ---------------Future Development---------------
@@ -97,22 +111,9 @@ As a user interested in organizing an event, I want to utilize the Event Registr
   - Invite collaborators to join event planning efforts and assign tasks.
   - Communicate with team members within the platform and track their contributions.
   - Ensure transparency and accountability in the planning process.
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributers](#contributers)
-- [Future Features](#future-features)
-- [License](#license)
-- [Deployed Application](#deployed-application)
 
-## Introduction
-## Introduction
-Welcome to the Event Registry –   
-your ultimate solution for streamlining the planning process of your special occasions.   
-Crafted with an intuitive interface and packed with robust features, our platform empowers you to effortlessly oversee invitations, track RSVPs, curate gift registries, and beyond.   
-This README offers a comprehensive overview of the repository along with detailed instructions for installation and usage.
+
+
 
 ## Features
 - **Event Creation**: Easily create new events by specifying details such as event type, date, time, and location.
@@ -130,7 +131,7 @@ This README offers a comprehensive overview of the repository along with detaile
 
 - **Collaborative Planning**: Invite collaborators such as co-hosts or event planners to work together on event organization. Share access to event details and tasks for seamless collaboration.
 ## Installation
-To set up the Event Registry on your local machine, follow these steps:
+To set up The Three Amigos Event Registry on your local machine, follow these steps:
 
 1. Clone the repository to your local machine:
    ```bash
@@ -165,26 +166,19 @@ After installing the Event Registry, you can start using it for your event plann
 
 
 
-## Contributers
+## Contributors
 Contributing to this project are 3 very skilled software developers:  
     -   C-Johnson83 aka Chrispy  
     -   dbrainz   
     - Hanszilzer
 
-## Future Features
-- **Guest Management**: Keep track of invited guests, including their contact information and RSVP status.  
-- **Event Details**: Store essential information about the event, such as date, time, location, and theme.  
-- **RSVP Tracking**: Monitor responses from guests, allowing you to plan accordingly based on attendance.  
-- **Customizable Templates**: Personalize invitations and other communications with customizable templates.  
-- **Multi-Event Support**: Manage multiple events simultaneously, each with its unique set of details and guests.  
-- **Security**: Ensure the security of sensitive information with encryption and access control measures.  
 
 ## License
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Thank you for choosing the Event Registry for your event planning needs! If you have any questions or need assistance, please don't hesitate to reach out to us. Happy planning! 🎉
+Thank you for choosing the Three Amigos Event Registry for your event planning needs! If you have any questions or need assistance, please don't hesitate to reach out to us. Happy planning! 🎉
 
 ## Deployed Application
 https://registry-km6c.onrender.com/
