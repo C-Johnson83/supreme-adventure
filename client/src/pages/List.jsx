@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery, useMutation  } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_LIST } from '../utils/queries';
-import { ADD_ITEM_TO_LIST} from '../utils/mutations';
-
+import { ADD_ITEM_TO_LIST } from '../utils/mutations';
+import { Form, Button, Alert, Card, Col, Row } from 'react-bootstrap';
 const List = () => {
     const { id } = useParams();
-    
+
 
     const { loading, error, data } = useQuery(QUERY_LIST, {
         variables: { id: id },
         errorPolicy: "all"
     });
 
-    
     const [addItemToList] = useMutation(ADD_ITEM_TO_LIST, {
         refetchQueries: [{ query: QUERY_LIST, variables: { id: id } }],
     });
@@ -21,7 +20,7 @@ const List = () => {
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');
     const [newItemLink, setNewItemLink] = useState('');
-    const [newItemNote, setNewItemNote] = useState('');
+    // const [newItemNote, setNewItemNote] = useState('');
 
     const addItem = async () => {
         console.log('Adding item')
@@ -32,7 +31,7 @@ const List = () => {
                     title: newItemTitle,
                     description: newItemDescription,
                     link: newItemLink,
-                    note: newItemNote,
+
                 }
             });
             console.log('newitem', newItem);
@@ -40,7 +39,7 @@ const List = () => {
             setNewItemTitle(''); // Clear input fields after adding item
             setNewItemDescription('');
             setNewItemLink('');
-            setNewItemNote('');
+
         } catch (error) {
             console.error('Failed to add item:', error.message);
         }
@@ -60,8 +59,11 @@ const List = () => {
 
     return (
         <>
-            <div>
-                <>
+
+
+            <div className="hero eventHero">
+                <div className="overlay"></div>
+                <div className='listInput'>
                     <div>
                         <h2>List Name: {data.getListById.listName}</h2>
                         <div className="list-details">
@@ -70,13 +72,6 @@ const List = () => {
                             <p>Event Date: {data.getListById.eventDate}</p>
                         </div>
                     </div>
-                </>
-
-            </div>
-
-            <div className="hero eventHero">
-                <div className="overlay"></div>
-                <div className="content">
                     <h1>{data.getListById.listName}</h1>
                     <p>Add items with names, links, and purchase status!</p>
                     <div>
@@ -100,15 +95,28 @@ const List = () => {
                         />
                         <button onClick={addItem}>Add Item</button>
                     </div>
-                    <ul>
+                </div>
+                    <br />
+                <div className="content">
+                    <Row>
                         {items.map((item, index) => (
-                            <li key={index}>
-                                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                    {item.title}
-                                </a>
-                            </li>
+                            <Col key={index} md={4}>
+                                <Card className='Card'>
+                                    <Card.Body>
+                                        <Card.Title>{item.title}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
+                                        <Card.Text>
+                                            To view or purchase the item clink the link below
+                                        </Card.Text>
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                            {item.title}
+                                        </a>
+                                    </Card.Body>
+                                </Card>
+
+                            </Col>
                         ))}
-                    </ul>
+                    </Row>
                 </div>
             </div>
         </>

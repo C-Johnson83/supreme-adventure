@@ -1,18 +1,16 @@
-/*_____ GLOBAL CSS _____*/
+/* _____ GLOBAL CSS _____ */
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: ' Calibri','Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    background: url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148435100.jpg?size=626&ext=jpg&ga=GA1.1.993636688.1709060292&semt=ais') center/cover fixed; /* Cool image background */
 }
 
 .hero {
     position: relative;
     height: 100vh;
-    background-color: rgb(2, 2, 74);
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    overflow-y:auto;
 }
 
 .overlay {
@@ -21,8 +19,35 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.26);
-    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white overlay */
+    backdrop-filter: blur(5px); /* Blur the content behind */
+}
+
+.listInput {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
+    padding: 40px; /* Add padding */
+    border-radius: 20px; /* Add border-radius for glassmorphism effect */
+    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    font-weight: bold;
+    
+}
+.listContent{
+    text-align: center;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
+    padding: 40px; /* Add padding */
+
+    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    font-weight: bold;
+    
 }
 
 .content {
@@ -31,23 +56,24 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #fff;
-    width: 50%;
-    background-color: #0f1010;
+    color: #000000;
+    padding: 40px; /* Add padding */
+    border-radius: 20px; /* Add border-radius for glassmorphism effect */
+    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    font-weight: bold;
+    margin-top: 5%;
 }
 
 .content h1 {
     font-size: 2em;
+    margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .content p {
     font-size: 1em;
-    margin: 15%;
+    margin-bottom: 20px; /* Add margin bottom for spacing */
 }
-.formContent {
 
-    background-color: #fff;
-}
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -55,18 +81,16 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     color: #fff;
-    border-style: solid;
-    border-color: #fff;
-    border-width: 1px;
-    margin-bottom: 5%;
+    border: none; /* Remove border */
+    background-color: rgba(0, 123, 255, 0.7); /* Semi-transparent background for the button */
 }
 
 .btn:hover {
-    background-color: #1b368d;
+    background-color: rgba(0, 123, 255, 0.9); /* Darker color on hover */
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 label {
@@ -74,14 +98,23 @@ label {
     margin-bottom: 5px;
 }
 
-form p {
-    margin: 10% 60% 0 0;
-    color: #ffffff;
-}
 .list-details {
     display: flex;
+    margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .list-details p {
-    margin-right: 10%; /* Adjust the spacing as needed */
+    margin-right: 20px; /* Adjust the spacing as needed */
 }
+
+.item-details {
+    text-transform: uppercase;
+}
+
+.Card {
+    border-radius: 20px; /* Add border-radius for glassmorphism effect */
+    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
+}
+
