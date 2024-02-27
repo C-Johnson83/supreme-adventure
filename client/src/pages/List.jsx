@@ -13,7 +13,9 @@ const List = () => {
         errorPolicy: "all"
     });
 
-    const [addItemToList] = useMutation(ADD_ITEM_TO_LIST);
+    const [addItemToList] = useMutation(ADD_ITEM_TO_LIST, {
+        refetchQueries: [{ query: QUERY_LIST, variables: { id: id } }],
+    });
     const [items, setItems] = useState([]);
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');

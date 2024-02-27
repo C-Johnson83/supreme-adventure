@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert,Card, Col, Row } from 'react-bootstrap';
+import { Form, Button, Alert, Card, Col, Row } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { SEARCH_ACCESS_CODE } from '../utils/queries';
 import { Link } from 'react-router-dom';
@@ -32,7 +32,6 @@ const SearchForm = () => {
     }, [data]);
 
 
-
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
     };
@@ -44,7 +43,6 @@ const SearchForm = () => {
             event.preventDefault();
             event.stopPropagation();
         }
-
         console.log('searched code\n', searchTerm);
     };
 
@@ -75,7 +73,6 @@ const SearchForm = () => {
                         Access code is required!
                     </Form.Control.Feedback>
                 </Form.Group>
-
                 <Button
                     disabled={!searchTerm}
                     type="submit"
@@ -86,33 +83,31 @@ const SearchForm = () => {
             </Form>
             {searchResults && (
                 <div>
-                    <p>User Name: {searchResults.userName}</p>
-                    <p>List Type: {searchResults.listType}</p>
-                    <p>List Name: {searchResults.listName}</p>
-                    <p>Event Date: {searchResults.eventDate}</p>
-                    <p>Access Code: {searchResults.accessCode}</p>
+                    <div className='item-details'>
+                        <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
+                        <p>Event Date: {searchResults.eventDate}</p>
+                        <p>Access Code: {searchResults.accessCode}</p>
+                    </div>
                     <p>Items:</p>
                     <Row>
                         {searchResults.items.map((item, index) => (
-                             <Col key={index} md={4}>
+                            <Col key={index} md={4}>
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>{item.title}</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
                                         <Card.Text>
-                                     
+                                            To view or purchase the item clink the link below
                                         </Card.Text>
-                                     
                                         <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                            {item.title}
+                                            Item Link
                                         </a>
-
                                     </Card.Body>
                                 </Card>
 
-                                </Col>
+                            </Col>
                         ))}
-                  </Row>
+                    </Row>
                 </div>
             )}
         </>

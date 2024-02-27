@@ -20,9 +20,10 @@ const Users = () => {
     const [listType, setListType] = useState('');
     const [listName, setListName] = useState('');
     const [accessCode, setAccessCode] = useState('');
-    const [eventDate, setDate] = useState(new Date());
+    const [eventDate, setDate] = useState('');
 
-    const { loading, data } = useQuery(QUERY_ME, { errorPolicy: "all" });
+    const { loading, data } = useQuery(QUERY_ME, { errorPolicy: "all",refetchQueries:[{query: QUERY_ME}] });
+
     const [addList] = useMutation(ADD_LIST);
     const [createdLists, setCreatedLists] = useState([]);
 
@@ -141,7 +142,7 @@ const Users = () => {
                                         <Card.Text>
                                             Access Code: {list.accessCode}
                                             <br />
-                                            Event Date: {list.eventDate}
+                                            Event Date: {new Date(list.eventDate).toLocaleDateString()}
                                         </Card.Text>
                                         <Link to={`/list/${list._id}`}>View List</Link>
 
