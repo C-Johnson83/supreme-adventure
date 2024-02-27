@@ -33,7 +33,7 @@ query getListById($id: ID!) {
       title
       description
       link
-      note
+     
     }
   }
 }

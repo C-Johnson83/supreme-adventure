@@ -12,14 +12,9 @@ const itemSchema = new Schema({
   link: {
     type: String,
     required: true
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User', 
-    required: true
   }
 });
 
-const Item = model("Item", itemSchema);
 
-module.exports = Item;
+
+module.exports = itemSchema;

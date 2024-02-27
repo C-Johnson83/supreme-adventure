@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const  itemSchema  = require('./Item')
 
 const listSchema = new Schema(
     {
@@ -12,7 +13,7 @@ const listSchema = new Schema(
         },
         listType: {
             type: String,
-            required: true
+            // required: true
         },
         listName: {
             type: String,
@@ -21,9 +22,8 @@ const listSchema = new Schema(
         eventDate: {
             type: Date
         },
-        items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
-    }
-);
+        items: [itemSchema]
+    })
 
 const List = model("List", listSchema);
 
