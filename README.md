@@ -381,14 +381,14 @@ Thank you for choosing the Three Amigos Event Registry for your event planning n
     <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">References</h2>
     <p>For more information and resources, please refer to the following:</p>
     <ul>
-      <li>All backgrounds were made by freepik.com</li>
+      <li>All backgrounds were made by <a href="https://www.freepik.com">freepik</a></li>
       <li></li>
-      <li><a href="https://chat.openai.com/">ChatGPT</a></li>
+      <li>Debugging query issues and creating the Readme were assisted by <a href="https://chat.openai.com/">ChatGPT</a></li>
     </ul>
   </section>
 
 </div>
 </body>
 </html>
-<a href="https://www.freepik.com/free-vector/hand-painted-watercolor-gender-reveal-concept_15479075.htm#fromView=search&page=1&position=16&uuid=669a8538-5555-4572-ad59-e40ea54addb2">Image by freepik</a>
+
 
