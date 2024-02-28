@@ -33,6 +33,10 @@ body {
     margin-bottom: 20px;
 }
 
+.delete {
+    margin-left: 5%;
+}
+
 /* _____ GLASSMORPHISM CSS _____ */
 
 .listInput {
@@ -50,6 +54,42 @@ body {
     font-weight: bold;
 }
 
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    color: #000000;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    max-width: 80%; /* Limit content width for better readability */
+    max-height: 60%; /* Limit content height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
+}
+.userCardContent {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
+}
+
 .listContent {
 
     text-align: center;
@@ -57,19 +97,66 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     padding: 20px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     font-weight: bold;
 
 }
 
-.content {
+.homeContent {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
+    scroll-behavior: smooth;
+}
+.itemContent {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
+    scroll-behavior: smooth;
+}
+
+.homeContent2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
+    scroll-behavior: smooth;
+}
+
+.homeContent3 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #000000;
-    padding: 40px;
+    padding: 15px;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     font-weight: bold;
@@ -120,6 +207,7 @@ label {
 }
 
 .Card {
+    margin: 2%;
     border-radius: 20px;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, 0.3);

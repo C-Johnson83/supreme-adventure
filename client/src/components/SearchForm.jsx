@@ -59,7 +59,7 @@ const SearchForm = () => {
         <>
             <div className="hero">
                 <div className="overlay"></div>
-                <div className="content">
+                <div className='homeContent'>
                     <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                         <Alert
                             dismissible
@@ -84,6 +84,7 @@ const SearchForm = () => {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form>
+                    </div>
                     {searchResults &&  (
                         <div>
                             <div className='item-details'>
@@ -92,10 +93,11 @@ const SearchForm = () => {
                                 <p>Access Code: {searchResults.accessCode}</p>
                             </div>
                             <p>Items:</p>
+                            <div className="content">
                             <Row>
                             {searchResults.items.map((item, index) => (
                                 <Col key={index} md={4}>
-                                    <Card>
+                                    <Card className='Card'>
                                         <Card.Body>
                                             
                                             <Card.Title>{item.title}</Card.Title>
@@ -114,9 +116,9 @@ const SearchForm = () => {
                             </Row>
                             
                         </div>
+                        </div>
                     )}
                 </div>
-            </div>
         </>
     );
 };
