@@ -78,6 +78,8 @@ const Users = () => {
 
     return (
         <>
+                        <div className="hero">
+                        <div className="overlay"></div>
             <div className="listContent">
                 <h1>Hello {userData.username}</h1>
                 <p>Lets make a list for your upcoming event!</p>
@@ -127,11 +129,9 @@ const Users = () => {
                     </Row>
                 </Form>
             </div>
-            <div className="hero">
-                <div className="overlay"></div>
 
 
-                <Container className="mt-4">
+                <Container className="content">
                     <Row>
                         {createdLists.map((list, index) => (
                             <Col key={index} md={4}>
