@@ -15,12 +15,12 @@ const SearchForm = () => {
     });
     console.log("Query Data", data);
     useEffect(() => {
-        if (error) {
+        if (error && !(searchResults === null || searchResults === "")) {
             setShowAlert(true);
         } else {
             setShowAlert(false);
         }
-    }, [error]);
+    }, [error, searchResults]);
 
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const SearchForm = () => {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form>
-                    {searchResults && (
+                    {searchResults && (searchResults  !={}) && (
                         <div>
                             <div className='item-details'>
                                 <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
@@ -104,6 +104,7 @@ const SearchForm = () => {
                                     </Col>
                                 ))}
                             </Row>
+                            
                         </div>
                     )}
                 </div>
