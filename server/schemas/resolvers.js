@@ -5,7 +5,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        console.log("query:me")
+        
         const userData = await User.findOne({ _id: context.user._id }).populate('lists').select('-__v -password');
 
         return userData;
@@ -26,7 +26,7 @@ const resolvers = {
 
     getListById: async (_, { id }) => {
       try {
-        console.log("query:list")
+        
         const list = await List.findById(id).select('-__v');
 
         return list;
@@ -41,7 +41,7 @@ const resolvers = {
         if (!list) {
           throw new Error('List not found.');
         }
-        console.log({accessCode, list});
+       
         return list;
       } catch (error) {
         throw new AuthenticationError('List not found.');
@@ -78,7 +78,7 @@ const resolvers = {
 
 
     addItemToList: async (_, { id, title, description, link }) => {
-      console.log('adding item to list');
+     
       try {
         const list = await List.findById(id).select('-__v');
         if (!list) {

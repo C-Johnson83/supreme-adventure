@@ -20,10 +20,10 @@ const List = () => {
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');
     const [newItemLink, setNewItemLink] = useState('');
-    // const [newItemNote, setNewItemNote] = useState('');
+    
 
     const addItem = async () => {
-        console.log('Adding item')
+       
         try {
             const newItem = await addItemToList({
                 variables: {
@@ -34,7 +34,7 @@ const List = () => {
 
                 }
             });
-            console.log('newitem', newItem);
+            
             setItems([...items, newItem.data.addItemToList]);
             setNewItemTitle(''); // Clear input fields after adding item
             setNewItemDescription('');
