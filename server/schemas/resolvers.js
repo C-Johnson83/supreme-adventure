@@ -115,43 +115,32 @@ const resolvers = {
         console.error("Error adding list:", error);
         throw new Error("Failed to add list. Please try again.");
       }
+    },
+
+        deleteList: async (_, { _id}, context) => {
+          if (!context.user) {
+            throw new AuthenticationError('You must be logged in to delete a list.');
+          }
+          try {
+            const list = await List.findById(_id);
+    
+            if (!list) {
+              throw new Error('List not found');
+            }
+
+            await list.deleteOne();
+    
+            console.log('List deleted successfully');
+
+            return 'List deleted successfully';
+          } catch (error) {
+            console.error('Error deleting list:', error);
+            throw new Error('Failed to delete list. Please try again.');
+          }
+        }
+      },
+
     }
 
 
-
-
-    // deleteItemFromList: async (_, { listId, itemId }) => {
-    //     try {
-    //       const list = await Item.findById(listId);
-    //       if (!list) {
-    //         throw new Error('List not found');
-    //       }
-    //       const itemIndex = list.items.findIndex(item => item._id.toString() === itemId);
-    //       if (itemIndex === -1) {
-    //         throw new Error('Item not found in list');
-    //       }
-    //       const deletedItem = list.items[itemIndex];
-    //       list.items.splice(itemIndex, 1);
-    //       await list.save();
-    //       return deletedItem;
-    //     } catch (error) {
-    //       throw new Error(`Failed to delete item from list: ${error.message}`);
-    //     }
-    //   },
-
-    //     updateItemInList: async (_, { itemId, name, link, quantity, quantityBought, note }) => {
-    //       try {
-    //         const item = await Item.findByIdAndUpdate(itemId, { name, link, quantity, quantityBought, note }, { new: true });
-    //         if (!item) {
-    //           throw new Error('Item not found');
-    //         }
-    //         return item;
-    //       } catch (error) {
-    //         throw new Error(`Failed to update item in list: ${error.message}`);
-    //       }
-    //     }
-
-    // }
-  }
-}
 module.exports = resolvers;

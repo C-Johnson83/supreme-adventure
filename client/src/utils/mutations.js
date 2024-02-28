@@ -53,6 +53,12 @@ export const ADD_ITEM_TO_LIST = gql`
   }
 `;
 
+export const DELETE_LIST = gql`
+  mutation deleteList($_id: ID!) {
+    deleteList(_id: $_id)
+  }
+`;
+
 
 
 
