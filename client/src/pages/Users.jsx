@@ -29,7 +29,7 @@ const Users = () => {
 
     const userData = data?.me || {};
 
-    console.log("lists", userData, "\n\n", userData.lists)
+    
 
 
 
@@ -38,7 +38,7 @@ const Users = () => {
         const setInitialCreatedLists = () => {
             if (userData.lists) {
                 setCreatedLists(userData.lists);
-                console.log('there are lists')
+                
             }
         };
         
@@ -48,7 +48,7 @@ const Users = () => {
 
     const handleAddList = async (event) => {
         event.preventDefault()
-        console.log('handleAddList called');
+        
         try {
             const testData = {
                 variables: {
@@ -61,7 +61,7 @@ const Users = () => {
             }
             const response = await addList(testData);
 
-            console.log('List saved successfully:', response);
+            
 
             setCreatedLists([...createdLists, response.data.addList]);
 
