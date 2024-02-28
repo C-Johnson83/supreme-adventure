@@ -33,7 +33,10 @@ db.once('open', async () => {
       console.error(err);
       process.exit(1);
     }
-  
+    console.log('---------------------------------------------------\n'+
+  '|     "Data collections have been cleared"        |\n'+
+  '|   "Data has been successfully seeded"           |\n'+
+  '---------------------------------------------------');
     
     process.exit(0);
   });
