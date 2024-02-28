@@ -4,98 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Three Amigos Event Registry</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  nav {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed; /* Set navbar to a fixed position */
-    width: 100%; /* Make navbar span the full width */
-  }
-  nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-  }
-  nav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  .content {
-    padding-top: 50px; /* Add padding-top to content to prevent it from being hidden by the fixed navbar */
-    padding-left: 20px; /* Adjust padding to align with the navbar */
-  }
-   img {
-    max-width: 50%; /* Ensure the image doesn't exceed its container width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove default inline display */
-    margin: 0 auto; /* Center horizontally */
-    margin-bottom: 20px; /* Add some bottom margin for spacing */
-  }
-  h1, h2, h3, h4 {
-    color: cyan;
-    border-bottom: 1px solid cyan;
-    width: 50%;
-  }
-  h1 {
-    width: 100%;
-    text-align: center;
-  }
-  h2, h3, h4 {
-    padding-top: 20px;
-  }
-  h3, h4 {
-    width: 25%;
-  }
-  details {
-    margin-bottom: 20px;
-  }
-  summary {
-    color: lime;
-    font-size: 12px;
-  }
-  #introduction,
-  #user-story,
-  #features,
-  #future-development,
-  #usage,
-  #contributors, 
-  #license, 
-  #deployed-application {
-    padding-top: 20px;
-  }
-</style>
 
 </head>
 <body>
-<nav>
-  <a href="#introduction">Introduction</a>
-  <a href="#user-story">User Story</a>
-  <a href="#features">Features</a>
-  <a href="#future-development">Future Development</a>
-  <a href="#installation">Installation</a>
-  <a href="#usage">Usage</a>
-  <a href="#contributors">Contributors</a>
-  <a href="#license">License</a>
-  <a href="#deployed-application">Deployed Application</a>
+<nav style="background-color: #333; overflow: hidden; position: fixed; width: 100%;">
+  <a href="#introduction" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Introduction</a>
+  <a href="#user-story" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">User Story</a>
+  <a href="#features" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Features</a>
+  <a href="#future-development" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Future Development</a>
+  <a href="#installation" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Installation</a>
+  <a href="#usage" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Usage</a>
+  <a href="#contributors" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Contributors</a>
+  <a href="#license" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">License</a>
+  <a href="#deployed-application" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Deployed Application</a>
 </nav>
-<div class="content">
-  <h1>Three Amigos Event Registry</h1>
-   <img src="./client/public/images/Demo.PNG" alt="Image description">
-  <section id="introduction">
-    <h2>Introduction</h2>
+<div class="content" style="padding-top: 50px; padding-left: 20px;">
+   <h1 style="color: cyan; border-bottom: 1px solid cyan; width: 100%; text-align: center;">Three Amigos Event Registry</h1>
+     <img src="./client/public/images/Demo.PNG" alt="Image description" style="max-width: 50%; height: auto; display: block; margin: 0 auto; margin-bottom: 20px;">
+  <section id="introduction"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Introduction</h2>
     <p>The Three Amigos Event Registry serves as a comprehensive solution for managing events such as weddings, birthdays, or baby showers. When you're organizing a joyous celebration, this registry offers the tools you need to keep track of guests, gifts, and other essential details.</p>
   </section>
 
-  <section id="user-story">
-    <h2>User Story and Acceptance Criteria</h2>
+  <section id="user-story"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">User Story and Acceptance Criteria</h2>
     As a user interested in organizing an event, I want to utilize The Three Amigos Event Registry platform to streamline my planning process.
 
 
@@ -281,16 +213,16 @@
 </details>
   </section>
   
-  <section id="features">
-    <h2>Features</h2>
+  <section id="features"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Features</h2>
     <ul>
       <li><strong>Event Creation</strong>: Easily create new events by specifying details such as event type, date, time, and location.</li>
       <li><strong>Gift Registry</strong>: Create and manage a list of desired gifts, making it easy for guests to choose and purchase items.</li>
     </ul>
   </section>
   
-  <section id="future-development">
-    <h2>Future Development Features</h2>
+  <section id="future-development"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Future Development Features</h2>
     <details>
       <summary>Expand/Collapse</summary>
       <ul>
@@ -304,8 +236,8 @@
     </details>
   </section>
   
-  <section id="installation">
-    <h2>Installation</h2>
+  <section id="installation"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Installation</h2>
     To set up The Three Amigos Event Registry on your local machine, follow these steps:
 
 
@@ -367,8 +299,8 @@
 
   </section>
   
-  <section id="usage">
-    <h2>Usage</h2>
+  <section id="usage"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Usage</h2>
     After installing the Event Registry, you can start using it for your event planning needs:
 
 
@@ -405,8 +337,8 @@
 
   </section>
   
-  <section id="contributors">
-    <h2>Contributors</h2>
+  <section id="contributors"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Contributors</h2>
     Contributing to this project are 3 very skilled software developers:  
 
     -   C-Johnson83 aka Chrispy  
@@ -416,8 +348,8 @@
     - Hanszilzer
   </section>
   
-  <section id="license">
-    <h2>License</h2>
+  <section id="license"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">License</h2>
     This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
 
@@ -429,8 +361,8 @@
 Thank you for choosing the Three Amigos Event Registry for your event planning needs! If you have any questions or need assistance, please don't hesitate to reach out to us. Happy planning! tada emoji
   </section>
   
-<section id="deployed-application">
-    <h2>Deployed Application</h2>
+<section id="deployed-application"style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Deployed Application</h2>
     <a href="https://registry-km6c.onrender.com/" target="_blank">https://registry-km6c.onrender.com/</a>
 </section>
 
