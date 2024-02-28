@@ -113,7 +113,7 @@ const Users = () => {
                                     <option value="">Select List Type</option>
                                     <option value="Wedding">Wedding</option>
                                     <option value="Birthday">Birthday</option>
-                                    <option value="Baby Shower">BabyShower</option>
+                                    <option value="BabyShower">Baby Shower</option>
                                 </Form.Control>
                             </Col>
                             <Col>
