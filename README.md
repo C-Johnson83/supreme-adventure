@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Three Amigos Event Registry</title>
+
 
 </head>
 <body>
@@ -345,7 +345,7 @@
 
     -   dbrainz   
 
-    - Hanszilzer
+    -   Hanszilzer
   </section>
   
   <section id="license"style="padding-top: 20px;">
