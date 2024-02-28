@@ -358,7 +358,6 @@
 
 
 
-Thank you for choosing the Three Amigos Event Registry for your event planning needs! If you have any questions or need assistance, please don't hesitate to reach out to us. Happy planning! tada emoji
   </section>
   
 <section id="deployed-application"style="padding-top: 20px;">
@@ -366,8 +365,30 @@ Thank you for choosing the Three Amigos Event Registry for your event planning n
     <a href="https://registry-km6c.onrender.com/" target="_blank">https://registry-km6c.onrender.com/</a>
 </section>
 
+Thank you for choosing the Three Amigos Event Registry for your event planning needs! If you have any questions or need assistance, please don't hesitate to reach out to us. Happy planning! tada emoji  
+
+  <section id="contact" style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">Contact</h2>
+    <p>You can reach out to us via email .</p>
+       <ul>
+      <li><a href="mailto:darren.brain@gmail.com">Darren Brain</a></li>
+      <li><a href="mailto:hanszilzer@gmail.com">Hanz Zilzer</a></li>
+      <li><a href="mailto:chrisj21283@gmail.com">Chris Johnson</a></li>
+    </ul>
+  </section>
+
+  <section id="references" style="padding-top: 20px;">
+    <h2 style="color: cyan; border-bottom: 1px solid cyan; width: 100%;">References</h2>
+    <p>For more information and resources, please refer to the following:</p>
+    <ul>
+      <li>All backgrounds were made by freepik.com</li>
+      <li></li>
+      <li><a href="https://chat.openai.com/">ChatGPT</a></li>
+    </ul>
+  </section>
+
 </div>
 </body>
 </html>
-
+<a href="https://www.freepik.com/free-vector/hand-painted-watercolor-gender-reveal-concept_15479075.htm#fromView=search&page=1&position=16&uuid=669a8538-5555-4572-ad59-e40ea54addb2">Image by freepik</a>
 

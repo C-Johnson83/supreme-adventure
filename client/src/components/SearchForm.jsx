@@ -109,7 +109,7 @@ const SearchForm = () => {
                                                 Item Link
                                             </a>
                                         </Card.Body>
-                                            <input type="checkbox" id={`checkbox-${index}`} checked={checkedItems[index] || false} onChange={() => checkHandler(index)} /> 
+                                           Purchased <input type="checkbox" id={`checkbox-${index}`} checked={checkedItems[index] || false} onChange={() => checkHandler(index)} /> 
                                     </Card>
                                 </Col>
                             ))}
