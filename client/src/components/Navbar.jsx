@@ -13,7 +13,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='lg' className='navBar'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             Supreme Adventure Event Registry
