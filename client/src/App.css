@@ -3,14 +3,14 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: ' Calibri','Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    background: url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148435100.jpg?size=626&ext=jpg&ga=GA1.1.993636688.1709060292&semt=ais') center/cover fixed; /* Cool image background */
+    font-family: ' Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 .hero {
     position: relative;
     height: 100vh;
-    overflow-y:auto;
+    overflow-y: auto;
+    background: url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148435100.jpg?size=626&ext=jpg&ga=GA1.1.993636688.1709060292&semt=ais') center/cover fixed;
 }
 
 .overlay {
@@ -19,9 +19,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white overlay */
-    backdrop-filter: blur(5px); /* Blur the content behind */
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2px);
 }
+
+.content h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+/* _____ GLASSMORPHISM CSS _____ */
 
 .listInput {
     position: absolute;
@@ -30,24 +42,22 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #000000;
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
-    padding: 40px; /* Add padding */
-    border-radius: 20px; /* Add border-radius for glassmorphism effect */
-    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
     font-weight: bold;
-    
 }
-.listContent{
+
+.listContent {
     text-align: center;
     color: #000000;
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
-    padding: 40px; /* Add padding */
-
-    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    backdrop-filter: blur(20px);
     font-weight: bold;
-    
 }
 
 .content {
@@ -57,22 +67,15 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #000000;
-    padding: 40px; /* Add padding */
-    border-radius: 20px; /* Add border-radius for glassmorphism effect */
-    backdrop-filter: blur(20px); /* Additional blur for glass effect */
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
     font-weight: bold;
     margin-top: 5%;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a solid border */
 }
 
-.content h1 {
-    font-size: 2em;
-    margin-bottom: 20px; /* Add margin bottom for spacing */
-}
 
-.content p {
-    font-size: 1em;
-    margin-bottom: 20px; /* Add margin bottom for spacing */
-}
 
 .btn {
     display: inline-block;
@@ -81,16 +84,18 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     color: #fff;
-    border: none; /* Remove border */
-    background-color: rgba(0, 123, 255, 0.7); /* Semi-transparent background for the button */
+    border: none;
+    background-color: rgba(0, 123, 255, 0.7);
 }
 
 .btn:hover {
-    background-color: rgba(0, 123, 255, 0.9); /* Darker color on hover */
+    background-color: rgba(0, 123, 255, 0.9);
+
 }
 
 .form-group {
-    margin-bottom: 20px; /* Add margin bottom for spacing */
+    margin-bottom: 20px;
+
 }
 
 label {
@@ -100,11 +105,11 @@ label {
 
 .list-details {
     display: flex;
-    margin-bottom: 20px; /* Add margin bottom for spacing */
+    margin-bottom: 20px;
 }
 
 .list-details p {
-    margin-right: 20px; /* Adjust the spacing as needed */
+    margin-right: 20px;
 }
 
 .item-details {
@@ -112,9 +117,46 @@ label {
 }
 
 .Card {
-    border-radius: 20px; /* Add border-radius for glassmorphism effect */
-    backdrop-filter: blur(20px); /* Additional blur for glass effect */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow for glass effect */
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
+/* _____ NEUMORPHIC CSS _____ */
+
+.neumorphic-form {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 8px 8px 16px #818283,
+        -8px -8px 16px #ffffff;
+}
+
+.neumorphic-input {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: inset 4px 4px 8px #818283,
+        inset -4px -4px 8px #ffffff;
+}
+
+.neumorphic-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 8px 8px 16px #818283,
+        -8px -8px 16px #ffffff;
+}
+
+.neumorphic-alert {
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px #818283,
+        -4px -4px 8px #ffffff;
+}

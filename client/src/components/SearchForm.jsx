@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert, Card, Col, Row } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { SEARCH_ACCESS_CODE } from '../utils/queries';
-import { Link } from 'react-router-dom';
+
 
 const SearchForm = () => {
-    const [searchTerm, setSearchTerm] = useState('gdfbdf');
+    const [searchTerm, setSearchTerm] = useState('');
     const [validated, setValidated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [searchResults, setSearchResults] = useState(null);
