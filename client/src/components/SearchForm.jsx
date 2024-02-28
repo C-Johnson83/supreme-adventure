@@ -6,6 +6,7 @@ import { SEARCH_ACCESS_CODE } from '../utils/queries';
 
 const SearchForm = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [checkedItems, setCheckedItems] = useState({});
     const [validated, setValidated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [searchResults, setSearchResults] = useState(null);
@@ -13,6 +14,12 @@ const SearchForm = () => {
         variables: { accessCode: searchTerm },
         errorPolicy: "all",
     });
+    const checkHandler = (index) => {
+        setCheckedItems(prevState => ({
+            ...prevState,
+            [index]: !prevState[index]
+        }));
+    };
     console.log("Query Data", data);
     useEffect(() => {
         if (error && !(searchResults === null || searchResults === "")) {
@@ -77,7 +84,7 @@ const SearchForm = () => {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form>
-                    {searchResults && (searchResults  !={}) && (
+                    {searchResults &&  (
                         <div>
                             <div className='item-details'>
                                 <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
@@ -86,23 +93,23 @@ const SearchForm = () => {
                             </div>
                             <p>Items:</p>
                             <Row>
-                                {searchResults.items.map((item, index) => (
-                                    <Col key={index} md={4}>
-                                        <Card>
-                                            <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
-                                                <Card.Text>
-                                                    To view or purchase the item clink the link below
-                                                </Card.Text>
-                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                                    Item Link
-                                                </a>
-                                            </Card.Body>
-                                        </Card>
-
-                                    </Col>
-                                ))}
+                            {searchResults.items.map((item, index) => (
+                                <Col key={index} md={4}>
+                                    <Card>
+                                        <Card.Body>
+                                            <Card.Title>{item.title}</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">{item.description}</Card.Subtitle>
+                                            <Card.Text>
+                                                To view or purchase the item clink the link below
+                                            </Card.Text>
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                Item Link
+                                            </a>
+                                            <input type="checkbox" id={`checkbox-${index}`} checked={checkedItems[index] || false} onChange={() => checkHandler(index)} /> 
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))}
                             </Row>
                             
                         </div>
