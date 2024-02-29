@@ -60,5 +60,10 @@ export const DELETE_LIST = gql`
 `;
 
 
+export const DELETE_ITEM_FROM_LIST = gql`
+  mutation deleteItemFromList($_id: ID!) {
+    deleteItemFromList(_id: $_id)
+  }
+`;
 
 
