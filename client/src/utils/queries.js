@@ -53,6 +53,7 @@ export const SEARCH_ACCESS_CODE = gql`
         title
         description
         link
+        purchased
       }
     }
   }
