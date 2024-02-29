@@ -26,21 +26,21 @@ const List = () => {
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');
     const [newItemLink, setNewItemLink] = useState('');
-    
+
 
     const addItem = async () => {
-       
+
         try {
-           const newItem = await addItemToList({
+            const newItem = await addItemToList({
                 variables: {
                     id: id,
                     title: newItemTitle,
                     description: newItemDescription,
                     link: newItemLink,
-purchased: false,
+                    purchased: false,
                 }
             });
-            
+
             setItems([...items, newItem.data.addItemToList]);
             setNewItemTitle(''); // Clear input fields after adding item
             setNewItemDescription('');
@@ -78,15 +78,15 @@ purchased: false,
 
     const myStyles = {
         Wedding: { background: "url('https://img.freepik.com/free-photo/interior-romantic-restaurant-modern-design-classic-style_8353-9909.jpg?w=1380&t=st=1709078314~exp=1709078914~hmac=1e2a1244fe1051514dbf22bcd7e08b09dec2d060253739926ad10a32480c9027')center/cover fixed" },
-        Birthday: { background:  "url('https://img.freepik.com/free-vector/happy-birthday-flags-confetti-card_1017-32699.jpg?t=st=1709078187~exp=1709081787~hmac=a5c95c0be432f2efcb6849e8e470e9fad14bf7cc144c5810682033c270504e03&w=1380')center/cover fixed" },
-        BabyShower: { background:  "url('https://img.freepik.com/free-vector/hand-painted-watercolor-gender-reveal-concept_23-2149003332.jpg?t=st=1709138345~exp=1709141945~hmac=20fc8d1a9dd749e8bb377f940d66a9efa8c9d77e14faef34f192b6fc21c1d4d5&w=996')center/cover fixed" },
+        Birthday: { background: "url('https://img.freepik.com/free-vector/happy-birthday-flags-confetti-card_1017-32699.jpg?t=st=1709078187~exp=1709081787~hmac=a5c95c0be432f2efcb6849e8e470e9fad14bf7cc144c5810682033c270504e03&w=1380')center/cover fixed" },
+        BabyShower: { background: "url('https://img.freepik.com/free-vector/hand-painted-watercolor-gender-reveal-concept_23-2149003332.jpg?t=st=1709138345~exp=1709141945~hmac=20fc8d1a9dd749e8bb377f940d66a9efa8c9d77e14faef34f192b6fc21c1d4d5&w=996')center/cover fixed" },
     };
 
     return (
         <>
 
 
-<div className="hero eventHero" style={myStyles[data.getListById.listType]}>
+            <div className="hero eventHero" style={myStyles[data.getListById.listType]}>
                 <div className="overlay"></div>
                 <div className='listInput'>
                     <div>
@@ -121,7 +121,7 @@ purchased: false,
                         <button onClick={addItem}>Add Item</button>
                     </div>
                 </div>
-                    <br />
+                <br />
                 <div className="content">
                     <Row>
                         {items.map((item, index) => (

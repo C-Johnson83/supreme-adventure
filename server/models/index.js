@@ -4,7 +4,7 @@ const List = require("./List")
 
 
 module.exports = {
-    User, 
+    User,
     Item,
     List,
 }
