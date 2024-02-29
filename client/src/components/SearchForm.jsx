@@ -29,13 +29,17 @@ const SearchForm = () => {
 
 
     useEffect(() => {
-
-        if (data) {
+        if (data && data.getListByAccessCode) {
             setSearchResults(data.getListByAccessCode);
-
+            // Initialize checkedItems based on purchased status
+            const initialCheckedItems = {};
+            data.getListByAccessCode.items.forEach(item => {
+                initialCheckedItems[item._id] = item.purchased || false;
+            });
+            setCheckedItems(initialCheckedItems);
         }
     }, [data]);
-
+console.log(data);
 
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
