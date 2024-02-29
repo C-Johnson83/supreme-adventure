@@ -112,7 +112,7 @@ const SearchForm = () => {
                     <div>
                         <div className='item-details'>
                             <p>Welcome to {searchResults.username}'s {searchResults.listType} Event Requested Item list, "{searchResults.listName}"</p>
-                            <p>Event Date: {searchResults.eventDate}</p>
+                            <p>Event Date: {new Date(searchResults.eventDate).toLocaleDateString()}</p>
                             <p>Access Code: {searchResults.accessCode}</p>
                         </div>
                         <p>Items:</p>
