@@ -43,7 +43,7 @@ const SearchForm = () => {
 
 
     const handleCheckboxChange = async (_id, checked) => {
-  
+
         try {
             await updateItemPurchasedStatus({
                 variables: {
@@ -51,7 +51,7 @@ const SearchForm = () => {
                     purchased: checked
                 }
             });
-           
+
             setCheckedItems(prevState => ({
                 ...prevState,
                 [_id]: checked

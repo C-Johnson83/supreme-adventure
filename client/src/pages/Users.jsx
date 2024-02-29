@@ -77,13 +77,13 @@ const Users = () => {
 
     };
     const handleDeleteList = async (_id) => {
-            try {
-                await deleteList({ variables: { _id } });
-                setCreatedLists(createdLists.filter(list => list._id !== _id));
-            } catch (error) {
-                console.error('Error deleting list:', error);
-            }
-        };
+        try {
+            await deleteList({ variables: { _id } });
+            setCreatedLists(createdLists.filter(list => list._id !== _id));
+        } catch (error) {
+            console.error('Error deleting list:', error);
+        }
+    };
 
 
     return (
@@ -141,8 +141,8 @@ const Users = () => {
                 </div>
 
 
-                    <Row>
-                <Container className="userCardContent">
+                <Row>
+                    <Container className="userCardContent">
                         {createdLists.map((list, index) => (
                             <Col key={index} md={4}>
                                 <Card className='Card'>
@@ -160,8 +160,8 @@ const Users = () => {
                                 </Card>
                             </Col>
                         ))}
-                </Container>
-                    </Row>
+                    </Container>
+                </Row>
 
 
 

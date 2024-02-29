@@ -5,7 +5,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        
+
         const userData = await User.findOne({ _id: context.user._id }).populate('lists').select('-__v -password');
 
         return userData;
@@ -26,28 +26,29 @@ const resolvers = {
 
     getListById: async (_, { id }) => {
       try {
-        
+
         const list = await List.findById(id).select('-__v');
 
         return list;
       } catch (error) {
-      throw AuthenticationError;
-    }},
+        throw AuthenticationError;
+      }
+    },
 
     getListByAccessCode: async (_, { accessCode }) => {
-      
+
       try {
-        const list = await List.findOne( {accessCode} ).select('-__v');
+        const list = await List.findOne({ accessCode }).select('-__v');
         if (!list) {
           throw new Error('List not found.');
         }
-       
+
         return list;
       } catch (error) {
         throw new AuthenticationError('List not found.');
       }
     }
-  
+
   },
 
   Mutation: {
@@ -58,7 +59,7 @@ const resolvers = {
       return { token, user };
     },
 
-    
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -78,7 +79,7 @@ const resolvers = {
 
 
     addItemToList: async (_, { id, title, description, link, purchased }) => {
-     
+
       try {
         const list = await List.findById(id).select('-__v');
         if (!list) {
@@ -92,7 +93,7 @@ const resolvers = {
         throw new Error(`Failed to add item to list: ${error.message}`);
       }
     },
-    
+
     addList: async (parent, args, context) => {
       try {
 
@@ -117,91 +118,91 @@ const resolvers = {
       }
     },
 
-        deleteList: async (_, { _id}, context) => {
-          if (!context.user) {
-            throw new AuthenticationError('You must be logged in to delete a list.');
-          }
-          try {
-            const list = await List.findById(_id);
-    
-            if (!list) {
-              throw new Error('List not found');
-            }
+    deleteList: async (_, { _id }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to delete a list.');
+      }
+      try {
+        const list = await List.findById(_id);
 
-            await list.deleteOne();
-    
-            console.log('List deleted successfully');
+        if (!list) {
+          throw new Error('List not found');
+        }
 
-            return 'List deleted successfully';
-          } catch (error) {
-            console.error('Error deleting list:', error);
-            throw new Error('Failed to delete list. Please try again.');
-          }
-        },
+        await list.deleteOne();
 
-        deleteItemFromList: async (_, { _id }, context) => {
-          if (!context.user) {
-            throw new AuthenticationError('You must be logged in to delete an item.');
-          }
-          
-          try {
-            const list = await List.findOne({ "items._id": _id });
-      
-            if (!list) {
-              throw new Error('List containing the item not found');
-            }
-      
-            const itemIndex = list.items.findIndex(item => item._id.toString() === _id);
-      
-            if (itemIndex === -1) {
-              throw new Error('Item not found in the list');
-            }
-      
-            list.items.splice(itemIndex, 1);
-            await list.save();
-      
-            console.log('Item deleted successfully');
-      
-            return 'Item deleted successfully';
-          } catch (error) {
-            console.error('Error deleting item:', error);
-            throw new Error('Failed to delete item. Please try again.');
-          }
-        },
+        console.log('List deleted successfully');
 
-       
-          updateItemPurchasedStatus: async (_, { _id, purchased }, context) => {
-            if (!context.user) {
-              throw new AuthenticationError('You must be logged in to update the purchased status.');
-            }
-            
-            try {
-              const list = await List.findOne({ "items._id": _id });
-              if (!list) {
-                throw new Error('List containing the item not found');
-              }
-              
-              const item = list.items.find(item => item._id.toString() === _id);
-              if (!item) {
-                throw new Error('Item not found in the list');
-              }
-              
-              item.purchased = purchased;
-              await list.save();
-              
-              return 'Purchased status updated successfully';
-            } catch (error) {
-              console.error('Error updating purchased status:', error);
-              throw new Error('Failed to update purchased status. Please try again.');
-            }
-          }
-      
-        
+        return 'List deleted successfully';
+      } catch (error) {
+        console.error('Error deleting list:', error);
+        throw new Error('Failed to delete list. Please try again.');
+      }
+    },
+
+    deleteItemFromList: async (_, { _id }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to delete an item.');
       }
 
+      try {
+        const list = await List.findOne({ "items._id": _id });
+
+        if (!list) {
+          throw new Error('List containing the item not found');
+        }
+
+        const itemIndex = list.items.findIndex(item => item._id.toString() === _id);
+
+        if (itemIndex === -1) {
+          throw new Error('Item not found in the list');
+        }
+
+        list.items.splice(itemIndex, 1);
+        await list.save();
+
+        console.log('Item deleted successfully');
+
+        return 'Item deleted successfully';
+      } catch (error) {
+        console.error('Error deleting item:', error);
+        throw new Error('Failed to delete item. Please try again.');
+      }
+    },
+
+
+    updateItemPurchasedStatus: async (_, { _id, purchased }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to update the purchased status.');
       }
 
-    
+      try {
+        const list = await List.findOne({ "items._id": _id });
+        if (!list) {
+          throw new Error('List containing the item not found');
+        }
+
+        const item = list.items.find(item => item._id.toString() === _id);
+        if (!item) {
+          throw new Error('Item not found in the list');
+        }
+
+        item.purchased = purchased;
+        await list.save();
+
+        return 'Purchased status updated successfully';
+      } catch (error) {
+        console.error('Error updating purchased status:', error);
+        throw new Error('Failed to update purchased status. Please try again.');
+      }
+    }
+
+
+  }
+
+}
+
+
 
 
 module.exports = resolvers;

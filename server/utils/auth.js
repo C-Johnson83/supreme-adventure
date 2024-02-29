@@ -1,4 +1,4 @@
-const {GraphQLError} = require("graphql");
+const { GraphQLError } = require("graphql");
 require('dotenv').config()
 const jwt = require("jsonwebtoken");
 
@@ -14,33 +14,33 @@ module.exports = {
 			code: "UNAUTHENTICATED"
 		}
 	}),
-	authMiddleware: function({req}){
+	authMiddleware: function ({ req }) {
 		let token = req.body.token || req.query.token || req.headers.authorization || "";
 
-    
+
 		if (req.headers.authorization) {
 			token = token.split(' ').pop().trim();
-		  }
-	  
-		  if (!token) {
-			return req;
-		  }
+		}
 
-
-		if(token.length === 0){
+		if (!token) {
 			return req;
 		}
 
-		try{
-			const {data} = jwt.verify(token, secret, {maxAge: expiration})
+
+		if (token.length === 0) {
+			return req;
+		}
+
+		try {
+			const { data } = jwt.verify(token, secret, { maxAge: expiration })
 			req.user = data;
 		} catch {
 			console.log("invalid token");
 		}
 		return req;
 	},
-	signToken: function({username, _id}){
-		const payload = {username, _id}
-		return jwt.sign({data: payload}, secret, {expiresIn: expiration});
+	signToken: function ({ username, _id }) {
+		const payload = { username, _id }
+		return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 	}
 }
