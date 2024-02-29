@@ -6,11 +6,7 @@ body {
     font-family: ' Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
-.navBar {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-}
+
 
 .hero {
     position: relative;
