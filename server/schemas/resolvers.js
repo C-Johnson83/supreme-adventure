@@ -167,7 +167,36 @@ const resolvers = {
             console.error('Error deleting item:', error);
             throw new Error('Failed to delete item. Please try again.');
           }
-        }
+        },
+
+       
+          updateItemPurchasedStatus: async (_, { _id, purchased }, context) => {
+            if (!context.user) {
+              throw new AuthenticationError('You must be logged in to update the purchased status.');
+            }
+            
+            try {
+              const list = await List.findOne({ "items._id": _id });
+              if (!list) {
+                throw new Error('List containing the item not found');
+              }
+              
+              const item = list.items.find(item => item._id.toString() === _id);
+              if (!item) {
+                throw new Error('Item not found in the list');
+              }
+              
+              item.purchased = purchased;
+              await list.save();
+              
+              return 'Purchased status updated successfully';
+            } catch (error) {
+              console.error('Error updating purchased status:', error);
+              throw new Error('Failed to update purchased status. Please try again.');
+            }
+          }
+      
+        
       }
 
       }

@@ -115,7 +115,7 @@ body {
     backdrop-filter: blur(10px);
     font-weight: bold;
     width: 100%;
-
+z-index: 1;
 }
 
 .homeContent {

@@ -28,6 +28,7 @@ type Item {
 	title: String!,
 	description: String,
 	link: String,
+	purchased: Boolean
 	
 } 
 
@@ -43,6 +44,7 @@ type Mutation {
 	addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
 	deleteList(_id: ID!): String 
 	deleteItemFromList(_id: ID!): String
+	updateItemPurchasedStatus(_id: ID!, purchased: Boolean!): String  
 }
 
 
