@@ -31,13 +31,13 @@ const List = () => {
     const addItem = async () => {
        
         try {
-            const newItem = await addItemToList({
+           const newItem = await addItemToList({
                 variables: {
                     id: id,
                     title: newItemTitle,
                     description: newItemDescription,
                     link: newItemLink,
-
+purchased: false,
                 }
             });
             

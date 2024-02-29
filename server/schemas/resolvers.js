@@ -77,14 +77,14 @@ const resolvers = {
     },
 
 
-    addItemToList: async (_, { id, title, description, link }) => {
+    addItemToList: async (_, { id, title, description, link, purchased }) => {
      
       try {
         const list = await List.findById(id).select('-__v');
         if (!list) {
           throw new Error('List not found');
         }
-        const newItem = { title, description, link };
+        const newItem = { title, description, link, purchased };
         list.items.push(newItem);
         await list.save();
         return newItem;

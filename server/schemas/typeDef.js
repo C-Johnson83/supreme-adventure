@@ -39,7 +39,7 @@ type Auth {
 
 type Mutation {
 	login(email: String!, password: String!): Auth
-    addItemToList(id: ID!, title: String!, description: String!, link: String): List
+    addItemToList(id: ID!, title: String!, description: String!, link: String, purchased: Boolean): List
 	addList(username: String!, accessCode: String!, listType: String!, listName: String!, eventDate: Date!): List
 	addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
 	deleteList(_id: ID!): String 
