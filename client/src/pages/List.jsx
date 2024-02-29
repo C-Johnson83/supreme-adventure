@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_LIST } from '../utils/queries';
-import { ADD_ITEM_TO_LIST } from '../utils/mutations';
+import { ADD_ITEM_TO_LIST, DELETE_ITEM_FROM_LIST } from '../utils/mutations';
 import { Form, Button, Alert, Card, Col, Row } from 'react-bootstrap';
+
 const List = () => {
     const { id } = useParams();
 
@@ -16,6 +17,11 @@ const List = () => {
     const [addItemToList] = useMutation(ADD_ITEM_TO_LIST, {
         refetchQueries: [{ query: QUERY_LIST, variables: { id: id } }],
     });
+
+    const [deleteItemFromList] = useMutation(DELETE_ITEM_FROM_LIST, {
+        refetchQueries: [{ query: QUERY_LIST, variables: { id: id } }],
+    });
+
     const [items, setItems] = useState([]);
     const [newItemTitle, setNewItemTitle] = useState('');
     const [newItemDescription, setNewItemDescription] = useState('');
@@ -42,6 +48,19 @@ const List = () => {
 
         } catch (error) {
             console.error('Failed to add item:', error.message);
+        }
+    };
+
+    const deleteItem = async (itemId) => {
+        try {
+            await deleteItemFromList({
+                variables: {
+                    _id: itemId
+                }
+            });
+            setItems(items.filter(item => item._id !== itemId));
+        } catch (error) {
+            console.error('Failed to delete item:', error.message);
         }
     };
 
@@ -117,6 +136,7 @@ const List = () => {
                                         <a href={item.link} target="_blank" rel="noopener noreferrer">
                                             {item.title}
                                         </a>
+                                        <Button variant="danger" onClick={() => deleteItem(item._id)}>Delete</Button>
                                     </Card.Body>
                                 </Card>
 

@@ -137,10 +137,71 @@ const resolvers = {
             console.error('Error deleting list:', error);
             throw new Error('Failed to delete list. Please try again.');
           }
-        }
-      },
+        },
 
-    }
+        deleteItemFromList: async (_, { _id }, context) => {
+          if (!context.user) {
+            throw new AuthenticationError('You must be logged in to delete an item.');
+          }
+          
+          try {
+            const list = await List.findOne({ "items._id": _id });
+      
+            if (!list) {
+              throw new Error('List containing the item not found');
+            }
+      
+            const itemIndex = list.items.findIndex(item => item._id.toString() === _id);
+      
+            if (itemIndex === -1) {
+              throw new Error('Item not found in the list');
+            }
+      
+            list.items.splice(itemIndex, 1);
+            await list.save();
+      
+            console.log('Item deleted successfully');
+      
+            return 'Item deleted successfully';
+          } catch (error) {
+            console.error('Error deleting item:', error);
+            throw new Error('Failed to delete item. Please try again.');
+          }
+        },
+
+       
+          updateItemPurchasedStatus: async (_, { _id, purchased }, context) => {
+            if (!context.user) {
+              throw new AuthenticationError('You must be logged in to update the purchased status.');
+            }
+            
+            try {
+              const list = await List.findOne({ "items._id": _id });
+              if (!list) {
+                throw new Error('List containing the item not found');
+              }
+              
+              const item = list.items.find(item => item._id.toString() === _id);
+              if (!item) {
+                throw new Error('Item not found in the list');
+              }
+              
+              item.purchased = purchased;
+              await list.save();
+              
+              return 'Purchased status updated successfully';
+            } catch (error) {
+              console.error('Error updating purchased status:', error);
+              throw new Error('Failed to update purchased status. Please try again.');
+            }
+          }
+      
+        
+      }
+
+      }
+
+    
 
 
 module.exports = resolvers;

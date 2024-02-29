@@ -12,9 +12,11 @@ const itemSchema = new Schema({
   link: {
     type: String,
     required: true
+  },
+  purchased: {
+    type: Boolean,
+    default: false  // Set default value to false for items that are not yet purchased
   }
 });
 
-
-
-module.exports = itemSchema;
+module.exports = model('Item', itemSchema);

@@ -39,19 +39,19 @@ export const ADD_LIST = gql`
 `;
 
 export const ADD_ITEM_TO_LIST = gql`
-  mutation addItemToList($id: ID!, $title: String!, $description: String!, $link: String!, ) {
-    addItemToList(id: $id, title: $title, description: $description, link: $link) {
+  mutation addItemToList($id: ID!, $title: String!, $description: String!, $link: String!, $purchased: Boolean!) {
+    addItemToList(id: $id, title: $title, description: $description, link: $link, purchased: $purchased) {
       items {
-      _id
-      title
-      description
-      link
-     
-    }
-      
+        _id
+        title
+        description
+        link
+        purchased  
     }
   }
+  }
 `;
+
 
 export const DELETE_LIST = gql`
   mutation deleteList($_id: ID!) {
@@ -60,5 +60,15 @@ export const DELETE_LIST = gql`
 `;
 
 
+export const DELETE_ITEM_FROM_LIST = gql`
+  mutation deleteItemFromList($_id: ID!) {
+    deleteItemFromList(_id: $_id)
+  }
+`;
 
+export const UPDATE_ITEM_PURCHASED_STATUS = gql`
+  mutation updateItemPurchasedStatus($_id: ID!, $purchased: Boolean!) {
+    updateItemPurchasedStatus(_id: $_id, purchased: $purchased)
+  }
+`;
 

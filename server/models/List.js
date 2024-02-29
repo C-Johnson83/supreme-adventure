@@ -1,29 +1,44 @@
 const { Schema, model } = require("mongoose");
-const  itemSchema  = require('./Item')
 
-const listSchema = new Schema(
-    {
-        username: {
+const listSchema = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    accessCode: {
+        type: String,
+        required: true
+    },
+    listType: {
+        type: String,
+        // required: true
+    },
+    listName: {
+        type: String,
+        required: true
+    },
+    eventDate: {
+        type: Date
+    },
+    items: [{
+        title: {
             type: String,
             required: true
         },
-        accessCode: {
+        description: {
             type: String,
             required: true
         },
-        listType: {
-            type: String,
-            // required: true
-        },
-        listName: {
+        link: {
             type: String,
             required: true
         },
-        eventDate: {
-            type: Date
-        },
-        items: [itemSchema]
-    })
+        purchased: {
+            type: Boolean,
+            default: false
+        }
+    }]
+});
 
 const List = model("List", listSchema);
 
